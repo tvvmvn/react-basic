@@ -1,0 +1,244 @@
+import { useContext, createContext } from 'react';
+ 
+/*
+  React Component
+
+  1 Component Composition
+
+  2 props
+
+  3 children props
+
+  4 useContext Hook
+*/
+
+
+export function Composition() {
+
+  function Content() {
+    return (
+      <>
+        <h2>고양이는 액체일까?</h2>
+        
+        {/* video */}
+        <img
+          src="https://mblogthumb-phinf.pstatic.net/MjAxOTA3MDRfMTM2/MDAxNTYyMjE2Mzc1NjQ3.ywQ3_FfZUTmg8oMQSIc3HecxkqJ1vzwq4Pwcu6diyOQg.hkGxwu96hY8E5HZDZnJCL4yXXaITk4-AJhhg8W6u2Ywg.JPEG.with_msip/2-1.jpg?type=w800"
+          alt=""
+          width="100%"
+        />
+      </>
+    )
+  }
+  
+  
+  function Comments() {
+    return (
+      <ul>
+        <li>유치하게 등수는... 3빠</li>
+        <li>2빠</li>
+        <li>1빠</li>
+      </ul>  
+    )
+  }
+  
+  
+  function Suggested() {
+    return (
+      <ul>
+        <li>고양이는 정말 폭력적일까?</li>
+        <li>고양이는 정말 자기가 신이라고 생각할까?</li>
+        <li>냥냥펀치는 얼마나 아플까?</li>
+      </ul>  
+    )
+  }
+
+  function Snippet() {
+    return (
+      <>
+        <header>
+          <h1>Youtube</h1>
+        </header>
+        
+        <main>
+          <Content />
+
+          <h2>Comments</h2>
+          <Comments />
+        </main>
+
+        <aside>
+          <h2>Suggested videos</h2>
+          <Suggested />
+        </aside>
+      </>
+    )
+  }
+
+  return <Snippet /> 
+}
+
+
+export function Props() {
+
+  // pass data to another component
+
+  const video = {
+    id: 1,
+    title: '고양이는 액체일까?',
+    source: 'https://mblogthumb-phinf.pstatic.net/MjAxOTA3MDRfMTM2/MDAxNTYyMjE2Mzc1NjQ3.ywQ3_FfZUTmg8oMQSIc3HecxkqJ1vzwq4Pwcu6diyOQg.hkGxwu96hY8E5HZDZnJCL4yXXaITk4-AJhhg8W6u2Ywg.JPEG.with_msip/2-1.jpg?type=w800'
+  };
+
+  function Content() {
+    
+    return (
+      <>
+      
+      </>  
+    )
+  }
+
+  function Snippet() {
+    return (
+      <>
+        <h1>Youtube</h1>
+        <Content video={video} />
+      </>
+    )
+  }
+
+  return <Snippet />
+}
+
+
+
+export function ChildrenProps() {
+  /* 
+    2 children props 
+
+    you can build components with tree structrue
+  */
+
+  function Layout(props) {
+
+    return (
+      <>
+        <h1>Instagram</h1>
+        <nav>
+          <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Posts</li>
+          </ul>
+        </nav>
+  
+        {props.children}
+      </>  
+    )
+  }
+  
+  function Article() {
+  
+    return (
+      <>
+        <img
+          src="https://image.xportsnews.com/contents/images/upload/article/2022/1206/mb_1670300078707386.jpg"
+          alt=""
+          width="100%"
+        />
+        <p>
+          <b>danaka </b> 
+          다나카상 라디오스타 출연했어요 
+        </p>
+  
+        <small>1일 전</small>
+      </>  
+    )
+  }
+
+  function Snippet() {
+    return (
+      <Layout>
+        <Article />
+      </Layout>
+    )
+  }
+
+  return <Snippet />
+}
+
+
+/* 3 useContext hook */
+export function UseContextHook() {
+
+  const AuthContext = createContext();
+
+  function AuthProvider(props) {
+
+    const value = { username: 'bunny' };
+  
+    return (
+      <AuthContext.Provider value={value}>
+        {props.children}
+      </AuthContext.Provider>  
+    )
+  }
+  
+  
+  function Layout(props) {
+  
+    const auth = useContext(AuthContext);
+  
+    return (
+      <>
+        <h3>Instagram</h3>
+        <nav>
+          <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Posts</li>
+          </ul>
+        </nav>
+  
+        <p>hi, {auth.username}</p>
+  
+        {props.children}
+      </>  
+    )
+  }
+  
+  
+  function Article() {
+  
+    const auth = useContext(AuthContext);
+  
+    return (
+      <>
+        <img
+          src="https://image.xportsnews.com/contents/images/upload/article/2022/1206/mb_1670300078707386.jpg"
+          alt=""
+          width="100%"
+        />
+        <p>
+          <b>danaka </b> 
+          다나카상 라디오스타 출연했어요 ^00^
+        </p>
+  
+        <small>1일 전</small>
+      </>  
+    )
+  }
+
+  function Snippet() {
+    return (
+      <AuthProvider>
+        <Layout>
+          <Article />
+        </Layout>
+      </AuthProvider>
+    )
+  }
+
+  return <Snippet />
+}
+
+
