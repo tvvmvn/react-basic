@@ -79,29 +79,29 @@ export function Composition() {
 
 
 export function Props() {
+  // DATA that pass into component
 
-  // pass data to another component
-
-  const video = {
-    id: 1,
-    title: '고양이는 액체일까?',
-    source: 'https://mblogthumb-phinf.pstatic.net/MjAxOTA3MDRfMTM2/MDAxNTYyMjE2Mzc1NjQ3.ywQ3_FfZUTmg8oMQSIc3HecxkqJ1vzwq4Pwcu6diyOQg.hkGxwu96hY8E5HZDZnJCL4yXXaITk4-AJhhg8W6u2Ywg.JPEG.with_msip/2-1.jpg?type=w800'
+  const irishBeer = { 
+    name: "Guinness", 
+    origin: "Ireland",
+    available: false
   };
 
-  function Content() {
-    
+  function Beer({ beer }) {
     return (
-      <>
-      
-      </>  
+      <ul>
+        <li>name: {beer.name}</li>
+        <li>origin: {beer.origin}</li>
+        <li>available: {beer.available ? "Yes" : "No"}</li>
+      </ul>  
     )
   }
-
+  
   function Snippet() {
     return (
       <>
-        <h1>Youtube</h1>
-        <Content video={video} />
+        <h2>Beer</h2>
+        <Beer beer={irishBeer} />
       </>
     )
   }
@@ -110,11 +110,9 @@ export function Props() {
 }
 
 
-
 export function ChildrenProps() {
   /* 
     2 children props 
-
     you can build components with tree structrue
   */
 

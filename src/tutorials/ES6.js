@@ -1,24 +1,40 @@
-export function Destructing() {
-  return (
-    <>
-      <h3>Destructing</h3>
-    </>  
-  )
+/*
+  # React and ES6
+  React uses es6 syntax in most cases
+
+  1 Destructing syntax
+  2 Spread operator
+  3 let and const
+  4 Array.map
+  5 ...
+*/
+
+export function ES6() {
+  return <h2>React and ES6</h2>
 }
 
-export function SpreadOperator() {
-  return (
-    <>
-      <h3>Spread Operator</h3>
-    </>  
-  )
-}
+function Map() {
 
-export function Methods() {
+  /*
+    Array.map
+    perform some operation on each item of array.
+    return updated array.
+  */
 
-  return (
-    <>
-      <h3>Methods</h3>
-    </>  
-  )
+  const numbers = [1, 2, 3];
+
+  const result = numbers.map((item, index) => {
+    return item * 10;
+  })
+
+  console.log(result);
+
+
+  // const beers = ["Guinness", "Heineken", "Budwiser"];
+
+  // const result = beers.map((beer, index) => {
+  //   return beer.toUpperCase();
+  // })
+
+  // console.log(result);
 }

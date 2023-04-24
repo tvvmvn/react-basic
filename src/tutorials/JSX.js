@@ -1,16 +1,15 @@
 /*
-  JSX
-  
-  Stands for JavaScript extension 
+  JSX (JavaScript extension)
   A Syntax extension to JavaScript
-  used for create virtual DOM
-  Declarative
+  used for create virtual elements
+  Declarative 
   Compile to plain JavaScript Object
 
-  2 JSX Syntax
-  3 print JavaScript result in JSX
-  4 Condition in JSX
-  5 Loop in JSX
+  1 JSX Syntax
+  2 JSX Fragment
+  2 print variables in JSX
+  3 Condition in JSX
+  4 Loop in JSX
 */
 
 
@@ -36,12 +35,11 @@ export function JSXBasic() {
 
 export function Fragment() {
 
-  // You can replace outer div with empty tag if it's not necessary. 
-  // try it yourself.
+  // elements must be wrapped in one tag.
 
   return (
     <div>
-      <h1>Unordered list</h1>
+      <h1>JSX Fragment</h1>
       <ul>
         <li>list item</li>
         <li>list item</li>
@@ -66,15 +64,12 @@ export function Print() {
   }
 
   return (
-    <>
-      <h3>{cat.name}</h3>
-      <ul>
-        <li>Name: {cat.name}</li>
-        <li>Age: {cat.age}</li>
-        <li>Home: {cat.home}</li>
-        <li>Sound: {cat.sound()}</li>
-      </ul>
-    </>  
+    <ul>
+      <li>Name: {cat.name}</li>
+      <li>Age: {cat.age}</li>
+      <li>Home: {cat.home}</li>
+      <li>Sound: {cat.sound()}</li>
+    </ul>
   )
 }
 
@@ -88,51 +83,55 @@ export function Condition() {
 
   return (
     <>
-      <h1>JSX Conditional rendering</h1>
+      <h2>JSX Conditional rendering</h2>
 
-      <h3>1 && (Logical AND)</h3>
+      <h3>&& (Logical AND)</h3>
       <p>
         expr1 && expr2 <br />
-        print expr2 if expr1 is true.
+        print expr2 if expr1 is considered true.
       </p>
-      <p>Result: {true && "expr1 was true"}</p>
+      <p>{true && "You can see me"}</p>
+      <p>{null && "You cannot see me"}</p>
 
-      <h3>2 || (Logical OR)</h3>
+      <h3>|| (Logical OR)</h3>
       <p>
         expr1 || expr2 <br />
-        print expr1 if expr1 is true.
-        print expr2 if expr1 is false.
+        print expr1 if expr1 is considered true.
+        print expr2 if expr1 is considered false.
       </p>
-      <p>Result: {false || "expr1 was false"}</p>
+      <p>{"You can see me" || "You cannot see me"}</p>
+      <p>{null || "You can see me"}</p>
 
-      <h3>3 ? (Ternary)</h3>
+      <h3>? (Ternary)</h3>
       <p>
         condition ? expr1 : expr2 <br />
         print expr1 if condition is true.
         print expr2 if condition is false.
       </p>
-      <p>Result: {true ? 'Condition was true' : 'Condition was false'}</p>
+      <p>{true ? 'Condition is true' : 'Condition is false'}</p>
+      <p>{false ? 'Condition is true' : 'Condition is false'}</p>
     </>  
   )
 }
 
 export function Loop() {
-
-  // Rendering list
   
   const beers = [
     { name: "Heineken", origin: "Netherlands" },
     { name: "Guinness", origin: "Ireland" },
     { name: "Asahi", origin: "Japan" }
   ]
+  
+  // Rendering list: Array.map
+  const beerList = beers.map((beer, index) => (
+    <li key={index}>{beer.name}, {beer.origin}</li>
+  ))
 
   return (
     <>
       <h3>World Beers</h3>
       <ul>
-        {beers.map((beer, index) => (
-          <li key={index}>{beer.name}, {beer.origin}</li>
-        ))}
+        {beerList}
       </ul>
     </>
   )

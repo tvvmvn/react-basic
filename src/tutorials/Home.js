@@ -16,13 +16,7 @@ export default function Home() {
       <h3>ES6</h3>
       <ul>
         <li>
-          <Link to="/es6/destructing">Destructing Syntax</Link>
-        </li>
-        <li>
-          <Link to="/es6/spread-operator">Spread Operator</Link>
-        </li>
-        <li>
-          <Link to="/es6/methods">Methods</Link>
+          <Link to="/es6">React and ES6</Link>
         </li>
       </ul>
 
@@ -35,10 +29,10 @@ export default function Home() {
           <Link to="/jsx/fragment">Fragment</Link>
         </li>
         <li>
-          <Link to="/jsx/condition">Condition</Link>
+          <Link to="/jsx/print">Print</Link>
         </li>
         <li>
-          <Link to="/jsx/print">Print</Link>
+          <Link to="/jsx/condition">Condition</Link>
         </li>
         <li>
           <Link to="/jsx/loop">Loop</Link>
@@ -92,6 +86,9 @@ export default function Home() {
       <ul>
         <li>
           <Link to="/quiz/jsx">JSX</Link>
+        </li>
+        <li>
+          <Link to="/quiz/component/composition">Component Composition</Link>
         </li>
       </ul>
 

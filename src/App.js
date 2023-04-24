@@ -8,8 +8,8 @@ import { JSXBasic, Print, Fragment, Condition, Loop } from './tutorials/JSX';
 import { Basic as EventBasic } from './tutorials/Event';
 import { UseEffectHook, DataFetching } from './tutorials/FetchData';
 import { Composition, Props, ChildrenProps, UseContextHook } from './tutorials/Component';
-import { Destructing, SpreadOperator, Methods } from './tutorials/ES6';
-import { JSX } from './tutorials/Quiz';
+import { ES6 } from './tutorials/ES6';
+import { JSX, ComponentComposition } from './tutorials/Quiz';
 import NotFound from './tutorials/NotFound';
 import TodoApp from './examples/TodoApp';
 
@@ -22,9 +22,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="intro" element={<Intro />} />
           <Route path="es6">
-            <Route path="destructing" element={<Destructing />} />
-            <Route path="spread-operator" element={<SpreadOperator />} />
-            <Route path="methods" element={<Methods />} />
+            <Route index element={<ES6 />} />
           </Route>
           <Route path="jsx"> 
             <Route path="basic" element={<JSXBasic />} />
@@ -48,6 +46,7 @@ export default function App() {
           </Route>
           <Route path="quiz">
             <Route path="jsx" element={<JSX />} />
+            <Route path="component/composition" element={<ComponentComposition />} />
           </Route>
           <Route path="examples/todo" element={<TodoApp />} />
         </Route>
