@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 /*
   Update Document in React
 
@@ -16,7 +18,7 @@
 */
 
 
-function Snippet() {
+export function UseStateHook() {
 
   const [count, setCount] = useState(0);
 
@@ -41,7 +43,6 @@ function Snippet() {
 
 function Snippet() {
   let count = 0;
-
 
   function handleClick(e) {
     count++;

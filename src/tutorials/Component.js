@@ -1,5 +1,6 @@
 import { useContext, createContext } from 'react';
  
+
 /*
   React Component
 
@@ -12,6 +13,10 @@ import { useContext, createContext } from 'react';
   4 useContext Hook
 */
 
+
+/* 
+  1 Composition 
+*/
 
 export function Composition() {
 
@@ -78,14 +83,12 @@ export function Composition() {
 }
 
 
-export function Props() {
-  // DATA that pass into component
+/*
+  3 props
+  DATA that pass into component
+*/
 
-  const irishBeer = { 
-    name: "Guinness", 
-    origin: "Ireland",
-    available: false
-  };
+export function Props() {
 
   function Beer({ beer }) {
     return (
@@ -98,6 +101,14 @@ export function Props() {
   }
   
   function Snippet() {
+
+    // local variables
+    const irishBeer = { 
+      name: "Guinness", 
+      origin: "Ireland",
+      available: false
+    };
+
     return (
       <>
         <h2>Beer</h2>
@@ -110,13 +121,14 @@ export function Props() {
 }
 
 
-export function ChildrenProps() {
-  /* 
-    2 children props 
-    you can build components with tree structrue
-  */
+/* 
+  3 children props 
+  you can build tree structure with components
+*/
 
-  function Layout(props) {
+export function ChildrenProps() {
+
+  function Layout({ children }) {
 
     return (
       <>
@@ -124,12 +136,18 @@ export function ChildrenProps() {
         <nav>
           <ul>
             <li>Home</li>
-            <li>About</li>
             <li>Posts</li>
+            <li>Profile</li>
           </ul>
         </nav>
   
-        {props.children}
+        <main style={{ padding: "1rem 0" }}>
+          {children}
+        </main>
+
+        <footer>
+          <small>2023 &copy; Instagram</small>
+        </footer>
       </>  
     )
   }
@@ -165,41 +183,51 @@ export function ChildrenProps() {
 }
 
 
-/* 3 useContext hook */
+/* 
+  4 useContext hook 
+  make component pass props to low level component  
+*/
+
 export function UseContextHook() {
 
   const AuthContext = createContext();
 
-  function AuthProvider(props) {
+  function AuthProvider({ children }) {
 
+    // local variables
     const value = { username: 'bunny' };
   
     return (
       <AuthContext.Provider value={value}>
-        {props.children}
+        {children}
       </AuthContext.Provider>  
     )
   }
   
-  
-  function Layout(props) {
+  function Layout({ children }) {
   
     const auth = useContext(AuthContext);
   
     return (
       <>
-        <h3>Instagram</h3>
+        <h1>Instagram</h1>
         <nav>
           <ul>
             <li>Home</li>
-            <li>About</li>
             <li>Posts</li>
+            <li>Profile</li>
           </ul>
         </nav>
   
         <p>hi, {auth.username}</p>
-  
-        {props.children}
+        
+        <main style={{ padding: "1rem 0" }}>
+          {children}
+        </main>
+
+        <footer>
+          <small>2023 &copy; Instagram</small>
+        </footer>
       </>  
     )
   }
@@ -218,7 +246,7 @@ export function UseContextHook() {
         />
         <p>
           <b>danaka </b> 
-          다나카상 라디오스타 출연했어요 ^00^
+          다나카상 라디오스타 출연했어요 
         </p>
   
         <small>1일 전</small>

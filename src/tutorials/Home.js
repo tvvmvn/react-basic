@@ -65,10 +65,20 @@ export default function Home() {
       <h3>Update View</h3>
       <ul>
         <li>
-          <Link to="/">useState Hook</Link>
+          <Link to="/usestate">useState Hook</Link>
         </li>
         <li>
           <Link to="/"></Link>
+        </li>
+      </ul>
+
+      <h3>React Router</h3>
+      <ul>
+        <li>
+          <Link to="/router/basic">Basic</Link>
+        </li>
+        <li>
+          <Link to="/router/auth">Router with Authorization</Link>
         </li>
       </ul>
 
@@ -88,7 +98,7 @@ export default function Home() {
           <Link to="/quiz/jsx">JSX</Link>
         </li>
         <li>
-          <Link to="/quiz/component/composition">Component Composition</Link>
+          <Link to="/quiz/component/composition">Component</Link>
         </li>
       </ul>
 
