@@ -157,13 +157,13 @@ export function ChildrenProps() {
     return (
       <>
         <img
-          src="https://image.xportsnews.com/contents/images/upload/article/2022/1206/mb_1670300078707386.jpg"
+          src="https://external-preview.redd.it/Lpgb3alLNJ0BOp_YH6hj2UaY-N60pmkUHf-gS6hbifE.jpg?auto=webp&s=44a73214eb47bf11c5d5c2dca4d971113c06baf3"
           alt=""
           width="100%"
         />
         <p>
-          <b>danaka </b> 
-          다나카상 라디오스타 출연했어요 
+          <b>Snoop Dogg </b> 
+          주인 새끼 나가서 한컷.
         </p>
   
         <small>1일 전</small>
@@ -240,13 +240,13 @@ export function UseContextHook() {
     return (
       <>
         <img
-          src="https://image.xportsnews.com/contents/images/upload/article/2022/1206/mb_1670300078707386.jpg"
+          src="https://external-preview.redd.it/Lpgb3alLNJ0BOp_YH6hj2UaY-N60pmkUHf-gS6hbifE.jpg?auto=webp&s=44a73214eb47bf11c5d5c2dca4d971113c06baf3"
           alt=""
           width="100%"
         />
         <p>
-          <b>danaka </b> 
-          다나카상 라디오스타 출연했어요 
+          <b>Snoop Dogg </b> 
+          주인 새끼 나가서 한컷.
         </p>
   
         <small>1일 전</small>
