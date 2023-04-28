@@ -1,17 +1,12 @@
-import { useEffect, useState, createContext, useContext, useParams } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, Outlet, useLocation } from 'react-router-dom';
+import { useEffect, useState, createContext, useContext } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link, Outlet, useLocation, useParams } from 'react-router-dom';
 
 /*
   React Router
 
-  perform work for request(path)
-  install/import react-router-dom 
-
   1 Basic Router
 
   2 Router with authorization
-  Basic Router + auth
-  basic > auth provider > auth required > login > logout
 */
 
 
@@ -27,21 +22,22 @@ export function BasicRouter() {
         <nav>
           <ul>
             <li>
-              <Link to="">Home</Link>
+              <Link to="/router/basic/">Home</Link>
             </li>
             <li>
-              <Link to="about">About</Link>
+              <Link to="/router/basic/about">About</Link>
             </li>
             <li>
-              <Link to="posts">Posts</Link>
+              <Link to="/router/basic/posts">Posts</Link>
             </li>
           </ul>
         </nav>
+
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/posts" element={<Posts />} />
-          <Route path="/post/:postId" element={<Post />} />
+          <Route path="about" element={<About />} />
+          <Route path="posts" element={<Posts />} />
+          <Route path="post/:postId" element={<Post />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </>
@@ -58,10 +54,10 @@ export function BasicRouter() {
         <h1>Posts</h1>
         <ul>
           <li>
-            <Link to="post/p1">Post 1</Link>
+            <Link to="/router/basic/post/p0">Post 1</Link>
           </li>
           <li>
-            <Link to="/post/p2">Post 2</Link>
+            <Link to="/router/basic/post/p1">Post 2</Link>
           </li>
         </ul>
       </>
@@ -69,9 +65,8 @@ export function BasicRouter() {
   }
   
   function Post() {
-  
-    const params = useParams();
-    const postId = params.postId;
+    // access parameter
+    const { postId } = useParams();
   
     return (
       <>
@@ -93,8 +88,6 @@ export function BasicRouter() {
 }
 
 
-
-
 /*
   2 Router with auth
 */
@@ -102,11 +95,23 @@ export function BasicRouter() {
 export function AuthRouter() {
 
   function Snippet() {
-  
     return (
-      <AuthProvider>
-        <Routes>
-          <Route path="/" element={<Layout />}>
+      <>
+        <AuthProvider>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/router/auth/">Home</Link>
+              </li>
+              <li>
+                <Link to="/router/auth/posts">Posts</Link>
+              </li>
+            </ul>
+          </nav>
+
+          <AuthStatus />
+          
+          <Routes>
             <Route index element={<Home />} />
             <Route path="posts" element={<Posts />} />
             <Route path="post/:postId" element={
@@ -115,9 +120,9 @@ export function AuthRouter() {
               </AuthRequired>
             } />
             <Route path="*" element={<NotFound />} />
-          </Route>
-        </Routes>
-      </AuthProvider>
+          </Routes>
+        </AuthProvider>
+      </>
     )
   }
   
@@ -126,15 +131,7 @@ export function AuthRouter() {
   function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
   
-    function signIn(username) {
-      setUser(username);
-    }
-  
-    function signOut() {
-      setUser(null)
-    }
-  
-    const value = { user, signIn, signOut };
+    const value = { user, setUser };
   
     return (
       <AuthContext.Provider value={value}>
@@ -143,68 +140,33 @@ export function AuthRouter() {
     )
   }
   
-  function Layout() {
-    const auth = useContext(AuthContext);
+  function AuthStatus() {
+    const { user, setUser } = useContext(AuthContext);
   
-    return (
-      <>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/router">Home</Link>
-            </li>
-            <li>
-              <Link to="/router/posts">Posts</Link>
-            </li>
-          </ul>
-        </nav>
-  
-        {auth.user ? (
-          <p>
-            Hi, {auth.user} {" "}
-            <button onClick={auth.signOut}>Log out</button>
-          </p>
-        ) : (
-          <p>Not logged in </p>
-        )}
-  
-        <Outlet />
-      </>
+    return user ? (
+      <p>
+        Hi, {user} {" "}
+        <button onClick={() => setUser(null)}>Log out</button>
+      </p>
+    ) : (
+      <p>Not logged in </p>
     )
   }
-  
-  function Home() {
-    return <h1>Home</h1>
-  }
-  
-  function Posts() {
-    return (
-      <>
-        <h1>Posts</h1>
-        <ul>
-          <li>
-            <Link to="/router/post/p1">Post 1</Link>
-          </li>
-          <li>
-            <Link to="/router/post/p2">Post 2</Link>
-          </li>
-        </ul>
-      </>
-    )
-  }
-  
+
   function AuthRequired(props) {
-    const auth = useContext(AuthContext);
+    const { user, setUser } = useContext(AuthContext);
   
     function handleSubmit(e) {
       e.preventDefault();
   
       const formData = new FormData(e.target);
+
+      // AJAX
   
-      auth.signIn(formData.get('username'))
+      setUser(formData.get('username'));
     }
   
-    if (!auth.user) {
+    if (!user) {
       return (
         <form onSubmit={handleSubmit}>
           <h1>Login</h1>
@@ -217,9 +179,28 @@ export function AuthRouter() {
     return props.children;
   }
   
+  function Home() {
+    return <h1>Home</h1>
+  }
+  
+  function Posts() {
+    return (
+      <>
+        <h1>Posts</h1>
+        <ul>
+          <li>
+            <Link to="/router/auth/post/p0">Post 1</Link>
+          </li>
+          <li>
+            <Link to="/router/auth/post/p1">Post 2</Link>
+          </li>
+        </ul>
+      </>
+    )
+  }
+  
   function Post() {
-    const params = useParams();
-    const postId = params.postId;
+    const { postId } = useParams();
   
     return (
       <>

@@ -11,7 +11,7 @@ import { Basic as EventBasic } from './tutorials/Event';
 import { UseStateHook } from './tutorials/UpdateView';
 import { BasicRouter, AuthRouter } from './tutorials/Router';
 import { UseEffectHook, DataFetching } from './tutorials/FetchData';
-import { JSX, ComponentComposition } from './tutorials/Quiz';
+import { JSX, ComponentComposition, UpdateView } from './tutorials/Quiz';
 import NotFound from './tutorials/NotFound';
 import TodoApp from './examples/TodoApp';
 
@@ -54,6 +54,7 @@ export default function App() {
           <Route path="quiz">
             <Route path="jsx" element={<JSX />} />
             <Route path="component/composition" element={<ComponentComposition />} />
+            <Route path="update-view" element={<UpdateView />} />
           </Route>
           <Route path="examples/todo" element={<TodoApp />} />
         </Route>

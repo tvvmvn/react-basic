@@ -67,9 +67,6 @@ export default function Home() {
         <li>
           <Link to="/usestate">useState Hook</Link>
         </li>
-        <li>
-          <Link to="/"></Link>
-        </li>
       </ul>
 
       <h3>React Router</h3>
@@ -99,6 +96,9 @@ export default function Home() {
         </li>
         <li>
           <Link to="/quiz/component/composition">Component</Link>
+        </li>
+        <li>
+          <Link to="/quiz/update-view">Update View</Link>
         </li>
       </ul>
 

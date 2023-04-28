@@ -121,14 +121,14 @@ export function ComponentComposition() {
 }
 
 
-export function Snippet() {
+export function UpdateView() {
   const [subscribed, setSubscribed] = useState(false);
 
   return (
     <>
       <h1>Subscribe button</h1>
       <button onClick={() => setSubscribed(!subscribed)}>
-        {!subscribed ? "Subscribe" : "Subscribed"}
+        {subscribed ? "Subscribed" : "Subscribe"}
       </button>
     </>  
   )

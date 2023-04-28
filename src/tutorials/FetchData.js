@@ -3,25 +3,25 @@ import { useState, useEffect } from 'react';
 /*
   Fetch data
 
-  1 What is fetching data
-    request data to server, and receive response from server
-  2 useEffect Hook
-  3 data fetching example
+  1 useEffect Hook
+
+  2 data fetching example
 */
 
 
 /*
-  2 useEffect
+  1 useEffect
 
-  useEffect(effect): excute effect whenever component is executed.
-  useEffect(effect, []): excute effect only at first.
-  useEffect(effect, [dep]): excute effect at first and whenever dependency is changed.
+  useEffect(effect): excute effect whenever component is rendered.
+  useEffect(effect, []): excute effect only at initial rendering.
+  useEffect(effect, [dep]): excute effect at initial rendering and whenever dependency is changed.
 */
+
 export function UseEffectHook() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    console.log('lol');
+    console.log('rendered at ' + new Date().toLocaleTimeString());
   }, [])
 
   return (
@@ -35,14 +35,15 @@ export function UseEffectHook() {
 
 
 /*
-  3 data fetching example
+  2 data fetching example
 */
+
 function fetchData() {
 
   const DATA = {
-    username: 'danaka',
-    image: 'https://image.xportsnews.com/contents/images/upload/article/2022/1206/mb_1670300078707386.jpg',
-    bio: '안녕하세요 여러붕구, 다나카입니다 ^00^'
+    username: 'snoop_dogg',
+    image: 'https://hips.hearstapps.com/hmg-prod/images/most-interesting-dog-meme-1546529364.png',
+    bio: 'bark'
   }
   
   const promise = new Promise((res, rej) => {
@@ -61,6 +62,7 @@ export function DataFetching() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [profile, setProfile] = useState(null);
 
+  // operate asynchoronously
   useEffect(() => {
     fetchData()
       .then(data => {
@@ -87,8 +89,8 @@ export function DataFetching() {
         src={profile.image}
         alt={profile.username}
         style={{
-          width: '100px',
-          height: '100px',
+          width: '200px',
+          height: '200px',
           objectFit: 'cover',
           borderRadius: '50%'
         }}
