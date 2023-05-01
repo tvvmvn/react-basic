@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react'
+// import styles from '../Todo.module.css'
 
 const FILTER_MAP = {
   All: () => true,
@@ -8,25 +9,26 @@ const FILTER_MAP = {
 
 const FILTER_NAMES = Object.keys(FILTER_MAP);
 
-function saveDoc(tasks) {
-  localStorage.setItem("tasks", tasks);
-}
-
-const initialTasks = localStorage.getItem('tasks') || "[]";
-
 export default function App() {
 
-  const [tasks, setTasks] = useState(JSON.parse(initialTasks));
+  const [tasks, setTasks] = useState([]);
   const [filter, setFilter] = useState('All');
 
-  // console.log(tasks);
+  console.log(tasks);
+
+  useEffect(() => {
+    const data = localStorage.getItem('tasks') || '[]';
+    const _tasks = JSON.parse(data);
+
+    setTasks(_tasks);
+  }, [])
 
   function addTask(name) {
-    const newTask = { id: `todo-${Date.now()}`, name, completed: false };
+    const newTask = { id: `todo-${Math.random()}`, name, completed: false };
 
     const updatedTasks = [...tasks, newTask];
 
-    saveDoc(JSON.stringify(updatedTasks));
+    localStorage.setItem('tasks', JSON.stringify(updatedTasks));
 
     setTasks(updatedTasks);
   }
@@ -34,7 +36,7 @@ export default function App() {
   function deleteTask(id) {
     const remainingTasks = tasks.filter(task => task.id !== id);
 
-    saveDoc(JSON.stringify(remainingTasks));
+    localStorage.setItem('tasks', JSON.stringify(remainingTasks));
 
     setTasks(remainingTasks);
   }
@@ -47,7 +49,7 @@ export default function App() {
       return task;
     })
 
-    saveDoc(JSON.stringify(updatedTasks));
+    localStorage.setItem('tasks', JSON.stringify(updatedTasks));
 
     setTasks(updatedTasks);
   }
@@ -60,7 +62,7 @@ export default function App() {
       return task;
     })
 
-    saveDoc(JSON.stringify(editedTasks));
+    localStorage.setItem('tasks', JSON.stringify(editedTasks));
 
     setTasks(editedTasks);
   }
@@ -87,20 +89,22 @@ export default function App() {
   ))
 
   return (
-    <div className="app-container">
+    <div className="max-w-sm mx-auto mt-8 border p-4 bg-white">
       {/* title */}
-      <h1 className="app-title">Todo List &#128526; &#127928;</h1>
+      <h1 className="text-2xl text-center mb-4">Todo List &#128526; &#127928;</h1>
 
       {/* form */}
       <Form addTask={addTask} />
 
       {/* filter buttons */}
-      <div className="filter-btn-group">
+      <div className="flex flex-nowrap gap-1 mb-4">
         {filterButtons}
       </div>
 
       {/* task list */}
-      <h2 className="remaining"> {taskList.length} task(s) remaining</h2>
+      <h2 className="text-xl mb-4">
+        <span className="font-semibold">{taskList.length} </span>
+        task(s) remaining</h2>
       <ul>
         {taskList}
       </ul>
@@ -108,27 +112,27 @@ export default function App() {
   )
 }
 
-function Form({ addTask }) {
+function Form(props) {
   const [name, setName] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
-    addTask(name);
+    props.addTask(name);
     setName("");
   }
 
   return (
-    <form className="todo-form" onSubmit={handleSubmit}>
+    <form className="mb-4" onSubmit={handleSubmit}>
       <input
         type="text"
-        className="add-input"
+        className="border px-2 py-1 w-full mb-2"
         value={name}
         onChange={(e) => setName(e.target.value)}
         autoComplete="off"
       />
       <button
         type="submit"
-        className="add-btn"
+        className="p-1 w-full border disabled:opacity-50 text-blue-500"
         disabled={!name.trim()}
       >
         Add
@@ -137,28 +141,28 @@ function Form({ addTask }) {
   )
 }
 
-function FilterButton({ name, isPressed, setFilter }) {
+function FilterButton(props) {
+
   return (
     <button
-      className={`filter-btn ${isPressed && "active"}`}
-      onClick={() => setFilter(name)}
+      className={"p-1 w-1/3 border " + (props.isPressed && "outline")}
+      onClick={() => props.setFilter(props.name)}
     >
-      {name}
+      {props.name}
     </button>
   )
 }
 
-function Todo({ id, name, completed, deleteTask, toggleTaskCompleted, editTask }) {
-  
+function Todo(props) {
   const [isEditing, setIsEditing] = useState(false);
   const [newName, setNewName] = useState("");
   const inputEl = useRef(null);
 
   function handleSubmit(e) {
     e.preventDefault();
-    editTask(id, newName);
+    props.editTask(props.id, newName);
     setIsEditing(false);
-    setNewName("");
+    setNewName("")
   }
 
   useEffect(() => {
@@ -168,62 +172,63 @@ function Todo({ id, name, completed, deleteTask, toggleTaskCompleted, editTask }
   })
 
   const viewTemplate = (
-    <div className="view-template">
+    <>
       {/* task name and checkbox */}
-      <div className="todo-details">
-        <input
-          type="checkbox"
-          id={id}
-          className="todo-checkbox"
-          checked={completed}
-          onChange={() => toggleTaskCompleted(id)}
-        />
-        <label htmlFor={id} className="todo-name">
-          {name}
+      <div className="flex mb-2">
+        <label>
+          <input
+            type="checkbox"
+            className="peer hidden"
+            checked={props.completed}
+            onChange={() => props.toggleTaskCompleted(props.id)}
+          />
+          <span className="text-xl peer-checked:line-through">
+            {props.name}
+          </span>
         </label>
       </div>
 
       {/* button group */}
-      <div className="view-btn-group">
+      <div className="flex flex-nowrap gap-1">
         <button
           onClick={() => setIsEditing(true)}
-          className="edit-btn"
+          className="border px-2 py-1 w-full mb-2"
         >
           Edit
         </button>
         <button
-          className="delete-btn"
-          onClick={() => deleteTask(id)}
+          className="border px-2 py-1 w-full mb-2 text-red-500"
+          onClick={() => props.deleteTask(props.id)}
         >
           Delete
         </button>
       </div>
-    </div>
+    </>
   );
 
   const editingTemplate = (
-    <form onSubmit={handleSubmit} className="edit-template">
-      {/* edit input */}
+    <form onSubmit={handleSubmit}>
+      {/* task input */}
       <input
         type="text"
-        className="edit-input"
+        className="border px-2 py-1 w-full mb-2"
         value={newName}
         onChange={(e) => setNewName(e.target.value)}
         ref={inputEl}
       />
 
       {/* button group */}
-      <div className="edit-btn-group">
+      <div className="flex flex-nowrap gap-1">
         <button
           type="button"
-          className="cancel-btn"
+          className="w-1/2 p-1 border"
           onClick={() => setIsEditing(false)}
         >
           Cancel
         </button>
         <button
           type="submit"
-          className="save-btn"
+          className="w-1/2 p-1 border disabled:opacity-50 text-blue-500"
           disabled={!newName.trim()}
         >
           Save
@@ -233,7 +238,7 @@ function Todo({ id, name, completed, deleteTask, toggleTaskCompleted, editTask }
   )
 
   return (
-    <li className="todo-item">
+    <li className="mb-4">
       {isEditing ? editingTemplate : viewTemplate}
     </li>
   )

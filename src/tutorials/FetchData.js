@@ -43,7 +43,7 @@ function fetchData() {
   const DATA = {
     username: 'snoop_dogg',
     image: 'https://hips.hearstapps.com/hmg-prod/images/most-interesting-dog-meme-1546529364.png',
-    bio: 'bark'
+    bio: '반갑네 인간'
   }
   
   const promise = new Promise((res, rej) => {
@@ -89,10 +89,10 @@ export function DataFetching() {
         src={profile.image}
         alt={profile.username}
         style={{
-          width: '200px',
-          height: '200px',
+          width: '150px',
+          height: '150px',
           objectFit: 'cover',
-          borderRadius: '50%'
+          borderRadius: '50%',
         }}
       />
       <h3>{profile.username}</h3>
