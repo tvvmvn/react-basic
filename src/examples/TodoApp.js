@@ -207,7 +207,7 @@ function Todo({ id, name, completed, deleteTask, toggleTaskCompleted, editTask }
       <input
         type="text"
         className="edit-input"
-        value={newName}
+        value={newName || name}
         onChange={(e) => setNewName(e.target.value)}
         ref={inputEl}
       />

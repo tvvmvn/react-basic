@@ -1,4 +1,4 @@
-// import './App.css';
+import './App.css';
 import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, Outlet, useLocation } from 'react-router-dom';
 import Layout from './tutorials/Layout';
