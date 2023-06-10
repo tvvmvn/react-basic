@@ -13,13 +13,6 @@ export default function Home() {
         </li>
       </ul>
 
-      <h3>ES6</h3>
-      <ul>
-        <li>
-          <Link to="/es6">React and ES6</Link>
-        </li>
-      </ul>
-
       <h3>JSX</h3>
       <ul>
         <li>
@@ -99,13 +92,6 @@ export default function Home() {
         </li>
         <li>
           <Link to="/quiz/update-view">Update View</Link>
-        </li>
-      </ul>
-
-      <h3>Examples</h3>
-      <ul>
-        <li>
-          <Link to="/examples/todo">Todo List</Link>
         </li>
       </ul>
     </>

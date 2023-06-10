@@ -1,11 +1,9 @@
 import './App.css';
-import { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, Outlet, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './tutorials/Layout';
 import Intro from './tutorials/Intro';
 import Home from './tutorials/Home';
 import { JSXBasic, Print, Fragment, Condition, Loop } from './tutorials/JSX';
-import { ES6 } from './tutorials/ES6';
 import { Composition, Props, ChildrenProps, UseContextHook } from './tutorials/Component';
 import { Basic as EventBasic } from './tutorials/Event';
 import { UseStateHook } from './tutorials/UpdateView';
@@ -13,7 +11,6 @@ import { BasicRouter, AuthRouter } from './tutorials/Router';
 import { UseEffectHook, DataFetching } from './tutorials/FetchData';
 import { JSX, ComponentComposition, UpdateView } from './tutorials/Quiz';
 import NotFound from './tutorials/NotFound';
-import TodoApp from './examples/TodoApp';
 
 export default function App() {
 
@@ -23,9 +20,6 @@ export default function App() {
         <Route element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="intro" element={<Intro />} />
-          <Route path="es6">
-            <Route index element={<ES6 />} />
-          </Route>
           <Route path="jsx"> 
             <Route path="basic" element={<JSXBasic />} />
             <Route path="fragment" element={<Fragment />} />
@@ -56,7 +50,6 @@ export default function App() {
             <Route path="component/composition" element={<ComponentComposition />} />
             <Route path="update-view" element={<UpdateView />} />
           </Route>
-          <Route path="examples/todo" element={<TodoApp />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
