@@ -5,13 +5,17 @@
   Declarative 
   Compile to plain JavaScript Object
 
-  1 JSX Syntax
+  1 JSX Basic Syntax
   2 JSX Fragment
-  2 print variables in JSX
-  3 Condition in JSX
-  4 Loop in JSX
+  2 Print variables in JSX
+  3 Conditional rendering in JSX
+  4 List rendering in JSX
 */
 
+
+/*
+  1 JSX Basic Syntax
+*/
 
 export function JSXBasic() {
   
@@ -33,6 +37,10 @@ export function JSXBasic() {
   )
 }
 
+/* 
+  2 Fragments
+*/
+
 export function Fragment() {
 
   // elements must be wrapped in one tag.
@@ -49,6 +57,10 @@ export function Fragment() {
   )
 }
 
+
+/*  
+  3 Print variables in JSX
+*/
 
 export function Print() {
 
@@ -73,6 +85,25 @@ export function Print() {
   )
 }
 
+
+/*
+  JSX Conditional rendering
+
+  1 &&(AND)
+  expr1 && expr2 
+  print expr2 if expr1 is considered true.
+
+  2 ||(OR)
+  expr1 || expr2 
+  print expr1 if expr1 is considered true.
+  print expr2 if expr1 is considered false.
+
+  3 ?(Ternary)
+  condition ? expr1 : expr2 
+  print expr1 if condition is true.
+  print expr2 if condition is false.
+*/
+
 export function Condition() {
 
   /*
@@ -85,34 +116,25 @@ export function Condition() {
     <>
       <h2>JSX Conditional rendering</h2>
 
-      <h3>&& (Logical AND)</h3>
-      <p>
-        expr1 && expr2 <br />
-        print expr2 if expr1 is considered true.
-      </p>
-      <p>{true && "You can see me"}</p>
-      <p>{null && "You cannot see me"}</p>
+      <h3>&&</h3>
+      <p>{true && "나는 보입니다"}</p>
+      <p>{null && "나는 안보입니다"}</p>
 
-      <h3>|| (Logical OR)</h3>
-      <p>
-        expr1 || expr2 <br />
-        print expr1 if expr1 is considered true.
-        print expr2 if expr1 is considered false.
-      </p>
-      <p>{"You can see me" || "You cannot see me"}</p>
-      <p>{null || "You can see me"}</p>
+      <h3>||</h3>
+      <p>{"나는 보입니다" || "나는 안보입니다"}</p>
+      <p>{null || "나는 보입니다"}</p>
 
-      <h3>? (Ternary)</h3>
-      <p>
-        condition ? expr1 : expr2 <br />
-        print expr1 if condition is true.
-        print expr2 if condition is false.
-      </p>
-      <p>{true ? 'Condition is true' : 'Condition is false'}</p>
-      <p>{false ? 'Condition is true' : 'Condition is false'}</p>
+      <h3>Ternary</h3>
+      <p>{true ? '조건이 참입니다' : '조건이 거짓입니다'}</p>
+      <p>{false ? '조건이 참입니다' : '조건이 거짓입니다'}</p>
     </>  
   )
 }
+
+
+/*
+  5 List rendering
+*/
 
 export function Loop() {
   
@@ -122,7 +144,6 @@ export function Loop() {
     { name: "Asahi", origin: "Japan" }
   ]
   
-  // Rendering list: Array.map
   const beerList = beers.map((beer, index) => (
     <li key={index}>{beer.name}, {beer.origin}</li>
   ))

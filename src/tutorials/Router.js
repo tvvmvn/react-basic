@@ -1,5 +1,5 @@
-import { useEffect, useState, createContext, useContext } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, Outlet, useLocation, useParams } from 'react-router-dom';
+import { useState, createContext, useContext } from 'react';
+import { Routes, Route, Link, useParams } from 'react-router-dom';
 
 /*
   React Router

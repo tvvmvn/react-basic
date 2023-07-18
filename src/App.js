@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, HashRouter, Routes, Route } from 'react-router-dom';
 import Layout from './tutorials/Layout';
 import Intro from './tutorials/Intro';
 import Home from './tutorials/Home';
@@ -10,12 +10,13 @@ import { UseStateHook } from './tutorials/UpdateView';
 import { BasicRouter, AuthRouter } from './tutorials/Router';
 import { UseEffectHook, DataFetching } from './tutorials/FetchData';
 import { JSX, ComponentComposition, UpdateView } from './tutorials/Quiz';
+import Test from "./tutorials/Test";
 import NotFound from './tutorials/NotFound';
 
 export default function App() {
 
   return (
-    <Router>
+    <HashRouter>
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<Home />} />
@@ -51,9 +52,10 @@ export default function App() {
             <Route path="update-view" element={<UpdateView />} />
           </Route>
         </Route>
+        <Route path="/test" element={<Test />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </Router>  
+    </HashRouter>  
   )
 }
 

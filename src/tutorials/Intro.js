@@ -13,10 +13,11 @@
   easy to use. 
   
   3 Structure
-  - it has a single page application (SPA) structure
+  - single page application (SPA) structure
   Update Document using JavaScript.
 
 */
+
 
 export default function Intro() {
 
@@ -26,3 +27,16 @@ export default function Intro() {
     </>  
   )
 }
+
+
+/*
+  Structrue
+
+  index.js
+  App.js
+  
+  index.html
+  
+  - static path
+  public/
+*/

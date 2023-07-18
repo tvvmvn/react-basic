@@ -11,6 +11,9 @@ export default function Home() {
         <li>
           <Link to="/intro">Intro</Link>
         </li>
+        <li>
+          <Link to="/basic/structure">Structure</Link>
+        </li>
       </ul>
 
       <h3>JSX</h3>
@@ -35,16 +38,16 @@ export default function Home() {
       <h3>Components</h3>
       <ul>
         <li>
-          <Link to="components/composition">Composition</Link>
+          <Link to="/components/composition">Composition</Link>
         </li>
         <li>
-          <Link to="components/props">Props</Link>
+          <Link to="/components/props">Props</Link>
         </li>
         <li>
-          <Link to="components/children-props">Children props</Link>
+          <Link to="/components/children-props">Children props</Link>
         </li>
         <li>
-          <Link to="components/use-context">useContext Hook</Link>
+          <Link to="/components/use-context">useContext Hook</Link>
         </li>
       </ul>
 
@@ -92,6 +95,12 @@ export default function Home() {
         </li>
         <li>
           <Link to="/quiz/update-view">Update View</Link>
+        </li>
+      </ul>
+      <h3>Test</h3>
+      <ul>
+        <li>
+          <Link to="/test">Test</Link>
         </li>
       </ul>
     </>
