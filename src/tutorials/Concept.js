@@ -27,16 +27,3 @@ export default function Intro() {
     </>  
   )
 }
-
-
-/*
-  Structrue
-
-  index.js
-  App.js
-  
-  index.html
-  
-  - static path
-  public/
-*/

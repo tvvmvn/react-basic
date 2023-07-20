@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router, HashRouter, Routes, Route } from 'react-router-dom';
 import Layout from './tutorials/Layout';
-import Intro from './tutorials/Intro';
+import Concept from './tutorials/Concept';
 import Home from './tutorials/Home';
 import { JSXBasic, Print, Fragment, Condition, Loop } from './tutorials/JSX';
 import { Composition, Props, ChildrenProps, UseContextHook } from './tutorials/Component';
@@ -20,7 +20,7 @@ export default function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="intro" element={<Intro />} />
+          <Route path="concept" element={<Concept />} />
           <Route path="jsx"> 
             <Route path="basic" element={<JSXBasic />} />
             <Route path="fragment" element={<Fragment />} />

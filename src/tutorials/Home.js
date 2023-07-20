@@ -1,18 +1,14 @@
 import { Link } from "react-router-dom"
 
 export default function Home() {
-
   return (
     <>
       <h3 style={{ textAlign: 'center' }}>React Tutorials</h3>
 
-      <h3>Basic</h3>
+      <h3>Intro</h3>
       <ul>
         <li>
-          <Link to="/intro">Intro</Link>
-        </li>
-        <li>
-          <Link to="/basic/structure">Structure</Link>
+          <Link to="/concept">What is React</Link>
         </li>
       </ul>
 
@@ -28,10 +24,10 @@ export default function Home() {
           <Link to="/jsx/print">Print</Link>
         </li>
         <li>
-          <Link to="/jsx/condition">Condition</Link>
+          <Link to="/jsx/condition">Conditional rendering</Link>
         </li>
         <li>
-          <Link to="/jsx/loop">Loop</Link>
+          <Link to="/jsx/loop">list rendering</Link>
         </li>
       </ul>
 

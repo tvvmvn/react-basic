@@ -163,7 +163,7 @@ export function ChildrenProps() {
         />
         <p>
           <b>Snoop Dogg </b> 
-          주인 새끼 나가서 한컷.
+          주인 나가서 한컷.
         </p>
   
         <small>1일 전</small>
