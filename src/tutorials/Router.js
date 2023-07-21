@@ -18,7 +18,8 @@ export function BasicRouter() {
 
   function Snippet() {
     return (
-      <>
+      // You need to replace Fragment to Router Component.
+      <> 
         <nav>
           <ul>
             <li>
@@ -96,6 +97,7 @@ export function AuthRouter() {
 
   function Snippet() {
     return (
+      // You need to replace Fragment to Router Component.
       <>
         <AuthProvider>
           <nav>
@@ -149,7 +151,7 @@ export function AuthRouter() {
         <button onClick={() => setUser(null)}>Log out</button>
       </p>
     ) : (
-      <p>Not logged in </p>
+      <p>Not logged in</p>
     )
   }
 
@@ -161,7 +163,7 @@ export function AuthRouter() {
   
       const formData = new FormData(e.target);
 
-      // AJAX
+      // AJAX Request
   
       setUser(formData.get('username'));
     }

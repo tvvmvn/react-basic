@@ -67,12 +67,12 @@ export function Composition() {
         <main>
           <Content />
 
-          <h2>Comments</h2>
+          <h2>댓글</h2>
           <Comments />
         </main>
 
         <aside>
-          <h2>Suggested videos</h2>
+          <h2>추천 영상</h2>
           <Suggested />
         </aside>
       </>
@@ -93,9 +93,9 @@ export function Props() {
   function Beer({ beer }) {
     return (
       <ul>
-        <li>name: {beer.name}</li>
-        <li>origin: {beer.origin}</li>
-        <li>available: {beer.available ? "Yes" : "No"}</li>
+        <li>이름: {beer.name}</li>
+        <li>원산지: {beer.origin}</li>
+        <li>판매중: {beer.available ? "예" : "아니오"}</li>
       </ul>  
     )
   }
@@ -162,7 +162,7 @@ export function ChildrenProps() {
           width="100%"
         />
         <p>
-          <b>Snoop Dogg </b> 
+          <b>snoop_dogg </b> 
           주인 나가서 한컷.
         </p>
   
@@ -219,7 +219,7 @@ export function UseContextHook() {
           </ul>
         </nav>
   
-        <p>hi, {auth.username}</p>
+        <p>안녕하세요, {auth.username}님!</p>
         
         <main style={{ padding: "1rem 0" }}>
           {children}
@@ -245,7 +245,7 @@ export function UseContextHook() {
           width="100%"
         />
         <p>
-          <b>Snoop Dogg </b> 
+          <b>snoop_dogg </b> 
           주인 나가서 한컷.
         </p>
   
