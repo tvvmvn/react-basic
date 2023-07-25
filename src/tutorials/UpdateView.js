@@ -32,17 +32,21 @@ export function UpdateWithComposition() {
   function Snippet() {
     const [count, setCount] = useState(0);
 
+    function handleClick() {
+      setCount(count + 1);
+    }
+
     return (
       <>
         <p>count: {count}</p>
-        <Button count={count} setCount={setCount} />
+        <Button handleClick={handleClick} />
       </>  
     )
   }
 
-  function Button({ count, setCount }) {
+  function Button({ handleClick }) {
     return (
-      <button onClick={() => setCount(count + 1)}>Add</button>
+      <button onClick={handleClick}>Add</button>
     )
   }
 
