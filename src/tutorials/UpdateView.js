@@ -29,6 +29,9 @@ export function UseStateHook() {
 }
 
 export function UpdateWithComposition() {
+  /*
+    A composited Component updates the state of main component.
+  */
   function Snippet() {
     const [count, setCount] = useState(0);
 
