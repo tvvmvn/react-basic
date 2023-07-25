@@ -6,7 +6,7 @@ import Home from './tutorials/Home';
 import { JSXBasic, Print, Fragment, Condition, Loop } from './tutorials/JSX';
 import { Composition, Props, ChildrenProps, UseContextHook } from './tutorials/Component';
 import { Basic as EventBasic } from './tutorials/Event';
-import { UseStateHook } from './tutorials/UpdateView';
+import { UseStateHook, UpdateWithComposition } from './tutorials/UpdateView';
 import { BasicRouter, AuthRouter } from './tutorials/Router';
 import { UseEffectHook, DataFetching } from './tutorials/FetchData';
 import { JSX, ComponentComposition, UpdateView } from './tutorials/Quiz';
@@ -37,7 +37,10 @@ export default function App() {
           <Route path="event">
             <Route path="basic" element={<EventBasic />} />
           </Route>
-          <Route path="usestate" element={<UseStateHook />} />
+          <Route path="update-view">
+            <Route path="usestate" element={<UseStateHook />} />
+            <Route path="composition" element={<UpdateWithComposition />} />
+          </Route>
           <Route path="router">
             <Route path="basic/*" element={<BasicRouter />} />
             <Route path="auth/*" element={<AuthRouter />} />

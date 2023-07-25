@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
@@ -57,7 +57,10 @@ export default function Home() {
       <h3>Update View</h3>
       <ul>
         <li>
-          <Link to="/usestate">useState Hook</Link>
+          <Link to="/update-view/usestate">useState Hook</Link>
+        </li>
+        <li>
+          <Link to="/update-view/composition">Update with Composition</Link>
         </li>
       </ul>
 
@@ -93,6 +96,7 @@ export default function Home() {
           <Link to="/quiz/update-view">Update View</Link>
         </li>
       </ul>
+
       <h3>Test</h3>
       <ul>
         <li>
