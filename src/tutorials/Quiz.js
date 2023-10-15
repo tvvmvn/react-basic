@@ -1,8 +1,12 @@
 import { useState } from 'react'
 
+
 /*
   JSX rendering
+
+  Q. create following table
 */
+
 
 export function JSX() {
   const beers = [
@@ -11,8 +15,8 @@ export function JSX() {
     { name: "Asahi", origin: "Japan", available: true }
   ]
 
-  const beerRows = beers.map((beer, index) => (
-    <tr key={index}>
+  const beerRows = beers.map((beer) => (
+    <tr key={beer.name}>
       <td>{beer.name}</td>
       <td>{beer.origin}</td>
       <td>{beer.available ? "예" : "아니오"}</td>
@@ -38,9 +42,19 @@ export function JSX() {
   )
 }
 
+
 /*
-  Create VIEW with DATA, Components and props
+  Component composition and props
+
+  Q. Create view with DATA and following components.
+  (DATA has local variable in Snippet)
+  
+  1 Snippet (Main component)
+  2 Content
+  3 Comments
+  4 Suggested
 */
+
 
 export function ComponentComposition() {
 
@@ -71,20 +85,20 @@ export function ComponentComposition() {
         
         <main>
           <Content video={DATA.video} />
-
-          <h2>댓글</h2>
           <Comments comments={DATA.comments} />
         </main>
 
         <aside>
-          <h2>추천 영상</h2>
           <Suggested suggestedVideos={DATA.suggestedVideos} />
         </aside>
       </>
     )
   }
 
-  function Content({ video }) {
+  function Content(props) {
+
+    const video = props.video;
+
     return (
       <>
         <h2>{video.title}</h2>
@@ -95,39 +109,51 @@ export function ComponentComposition() {
     )
   }
   
-  function Comments({ comments }) {
+  function Comments(props) {
+
+    const comments = props.comments;
 
     const commentList = comments.map(comment => (
       <li key={comment.id}>{comment.content}</li>  
     ))
 
     return (
-      <ul>
-        {commentList}
-      </ul>  
+      <>
+        <h2>댓글</h2>
+        <ul>
+          {commentList}
+        </ul>  
+      </>
     )
   }
   
   
-  function Suggested({ suggestedVideos }) {
+  function Suggested(props) {
+
+    const suggestedVideos = props.suggestedVideos;
 
     const suggestedVideoList = suggestedVideos.map(video => (
       <li key={video.id}>{video.title}</li>  
     ))
 
     return (
-      <ul>
-        {suggestedVideoList}
-      </ul>  
+      <>
+        <h2>추천 영상</h2>
+        <ul>
+          {suggestedVideoList}
+        </ul>  
+      </>
     )
   }
 
   return <Snippet /> 
 }
 
+
 /*
   Update View
 */
+
 
 export function UpdateView() {
   const [subscribed, setSubscribed] = useState(false);

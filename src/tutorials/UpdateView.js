@@ -4,11 +4,12 @@ import { useState } from 'react';
   Update View
 
   1 useState Hook
+  2 update state and composition
 */
 
 
 /*
-  useState Hook
+  1 useState Hook
 
   const [state, setState] = useState(initialValue);
 
@@ -23,15 +24,17 @@ export function UseStateHook() {
   return (
     <>
       <p>count: {count}</p>
-      <button onClick={() => setCount(count + 1)}>Add</button>
+      <button onClick={() => setCount(count + 1)}>+</button>
     </>
   )
 }
 
+/*
+  2 update state and composition
+  A composited Component updates the state of main component.
+*/
+
 export function UpdateWithComposition() {
-  /*
-    A composited Component updates the state of main component.
-  */
   function Snippet() {
     const [count, setCount] = useState(0);
 
@@ -49,7 +52,7 @@ export function UpdateWithComposition() {
 
   function Button({ handleClick }) {
     return (
-      <button onClick={handleClick}>Add</button>
+      <button onClick={handleClick}>+</button>
     )
   }
 

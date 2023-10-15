@@ -1,31 +1,48 @@
 import { useContext, createContext } from 'react';
  
-
 /*
-  React Component
+  * React Component
+  Resuable and independent parts to build UI.
+  Component name must starts with uppercase letter.
 
   1 Component Composition
-
   2 props
-
   3 children props
-
   4 useContext Hook
 */
 
 
 /* 
-  1 Composition 
+  Component composition 
 */
 
+
 export function Composition() {
+
+  // Main component
+  function Snippet() {
+    return (
+      <>
+        <header>
+          <h1>Youtube</h1>
+        </header>
+        
+        <main>
+          <Content />
+          <Comments />
+        </main>
+
+        <aside>
+          <Suggested />
+        </aside>
+      </>
+    )
+  }
 
   function Content() {
     return (
       <>
         <h2>고양이는 액체일까?</h2>
-        
-        {/* video */}
         <img
           src="https://mblogthumb-phinf.pstatic.net/MjAxOTA3MDRfMTM2/MDAxNTYyMjE2Mzc1NjQ3.ywQ3_FfZUTmg8oMQSIc3HecxkqJ1vzwq4Pwcu6diyOQg.hkGxwu96hY8E5HZDZnJCL4yXXaITk4-AJhhg8W6u2Ywg.JPEG.with_msip/2-1.jpg?type=w800"
           alt=""
@@ -38,43 +55,27 @@ export function Composition() {
   
   function Comments() {
     return (
-      <ul>
-        <li>유치하게 등수는... 3빠</li>
-        <li>2빠</li>
-        <li>1빠</li>
-      </ul>  
+      <>
+        <h2>댓글</h2>
+        <ul>
+          <li>유치하게 등수는... 3빠</li>
+          <li>2빠</li>
+          <li>1빠</li>
+        </ul>  
+      </>
     )
   }
   
   
   function Suggested() {
     return (
-      <ul>
-        <li>고양이는 정말 폭력적일까?</li>
-        <li>고양이는 정말 자기가 신이라고 생각할까?</li>
-        <li>냥냥펀치는 얼마나 아플까?</li>
-      </ul>  
-    )
-  }
-
-  function Snippet() {
-    return (
       <>
-        <header>
-          <h1>Youtube</h1>
-        </header>
-        
-        <main>
-          <Content />
-
-          <h2>댓글</h2>
-          <Comments />
-        </main>
-
-        <aside>
-          <h2>추천 영상</h2>
-          <Suggested />
-        </aside>
+        <h2>추천 영상</h2>
+        <ul>
+          <li>고양이는 정말 폭력적일까?</li>
+          <li>고양이는 정말 자기가 신이라고 생각할까?</li>
+          <li>냥냥펀치는 얼마나 아플까?</li>
+        </ul>  
       </>
     )
   }
@@ -84,24 +85,14 @@ export function Composition() {
 
 
 /*
-  3 props
-  DATA that pass into component
+  * Props
+
+  DATA that is passed into component
 */
 
 export function Props() {
 
-  function Beer({ beer }) {
-    return (
-      <ul>
-        <li>이름: {beer.name}</li>
-        <li>원산지: {beer.origin}</li>
-        <li>판매중: {beer.available ? "예" : "아니오"}</li>
-      </ul>  
-    )
-  }
-  
   function Snippet() {
-
     // local variables
     const irishBeer = { 
       name: "Guinness", 
@@ -117,19 +108,41 @@ export function Props() {
     )
   }
 
+  function Beer(props) {
+    
+    console.log(props);
+
+    const beer = props.beer;
+
+    return (
+      <ul>
+        <li>이름: {beer.name}</li>
+        <li>원산지: {beer.origin}</li>
+        <li>판매중: {beer.available ? "예" : "아니오"}</li>
+      </ul>  
+    )
+  }
+  
   return <Snippet />
 }
 
 
 /* 
-  3 children props 
+  - Children props 
   you can build tree structure with components
 */
 
 export function ChildrenProps() {
 
-  function Layout({ children }) {
+  function Snippet() {
+    return (
+      <Layout>
+        <Article />
+      </Layout>
+    )
+  }
 
+  function Layout({ children }) {
     return (
       <>
         <h1>Instagram</h1>
@@ -153,7 +166,6 @@ export function ChildrenProps() {
   }
   
   function Article() {
-  
     return (
       <>
         <img
@@ -171,24 +183,26 @@ export function ChildrenProps() {
     )
   }
 
-  function Snippet() {
-    return (
-      <Layout>
-        <Article />
-      </Layout>
-    )
-  }
-
   return <Snippet />
 }
 
 
 /* 
-  4 useContext hook 
+  - useContext hook 
   make component pass props to low level component  
 */
 
 export function UseContextHook() {
+
+  function Snippet() {
+    return (
+      <AuthProvider>
+        <Layout>
+          <Article />
+        </Layout>
+      </AuthProvider>
+    )
+  }
 
   const AuthContext = createContext();
 
@@ -251,16 +265,6 @@ export function UseContextHook() {
   
         <small>1일 전</small>
       </>  
-    )
-  }
-
-  function Snippet() {
-    return (
-      <AuthProvider>
-        <Layout>
-          <Article />
-        </Layout>
-      </AuthProvider>
     )
   }
 

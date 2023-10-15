@@ -1,29 +1,23 @@
+export default function Intro() {
+  return <h1>what is React</h1>
+}
+
 /*
 
-  1 What is React
-  - A JavaScript library fot building UI
-  - developed by Facebook
-  - Most popular Front-End framework
+  What is React
 
-  2 React feature
-  - Components based. 
-  independent and reusable pieces to build completex UIs.
+  A JavaScript library fot building UI developed by Facebook.
+  Most popular Front-End framework.
 
-  - Declarative
-  easy to use. 
+  * Features
+  1) Components based. 
+  component is independent and reusable parts to build completex UIs
+
+  2) Declarative programming
+  easy to use.just like HTML.
   
-  3 Structure
-  - single page application (SPA) structure
-  Update Document using JavaScript.
-
+  3) Single page application (SPA)
+  Update view using JavaScript.
+  fast and smooth  
+  
 */
-
-
-export default function Intro() {
-
-  return (
-    <>
-      <h1>Intro</h1>
-    </>  
-  )
-}

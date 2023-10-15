@@ -6,14 +6,17 @@ export default function Home() {
       <h3 style={{ textAlign: 'center' }}>React Tutorials</h3>
 
       <h3>Intro</h3>
-      <ul>
+      <ol>
         <li>
           <Link to="/concept">What is React</Link>
         </li>
-      </ul>
+      </ol>
 
       <h3>JSX</h3>
-      <ul>
+      <ol>
+        <li>
+          <Link to="/jsx/virtual-tree">Virtual tree</Link>
+        </li>
         <li>
           <Link to="/jsx/basic">Basic Usage</Link>
         </li>
@@ -29,10 +32,10 @@ export default function Home() {
         <li>
           <Link to="/jsx/loop">list rendering</Link>
         </li>
-      </ul>
+      </ol>
 
       <h3>Components</h3>
-      <ul>
+      <ol>
         <li>
           <Link to="/components/composition">Composition</Link>
         </li>
@@ -45,47 +48,47 @@ export default function Home() {
         <li>
           <Link to="/components/use-context">useContext Hook</Link>
         </li>
-      </ul>
+      </ol>
 
       <h3>Event</h3>
-      <ul>
+      <ol>
         <li>
           <Link to="/event/basic">Basic Usage</Link>
         </li>
-      </ul>
+      </ol>
 
       <h3>Update View</h3>
-      <ul>
+      <ol>
         <li>
           <Link to="/update-view/usestate">useState Hook</Link>
         </li>
         <li>
           <Link to="/update-view/composition">Update with Composition</Link>
         </li>
-      </ul>
+      </ol>
 
       <h3>React Router</h3>
-      <ul>
+      <ol>
         <li>
           <Link to="/router/basic">Basic</Link>
         </li>
         <li>
           <Link to="/router/auth">Router with Authorization</Link>
         </li>
-      </ul>
+      </ol>
 
       <h3>Fetch data</h3>
-      <ul>
+      <ol>
         <li>
           <Link to="/fetch-data/use-effect">useEffect Hook</Link>
         </li>
         <li>
           <Link to="/fetch-data/examples">Examples</Link>
         </li>
-      </ul>
+      </ol>
 
       <h3>Quiz</h3>
-      <ul>
+      <ol>
         <li>
           <Link to="/quiz/jsx">JSX</Link>
         </li>
@@ -95,14 +98,14 @@ export default function Home() {
         <li>
           <Link to="/quiz/update-view">Update View</Link>
         </li>
-      </ul>
+      </ol>
 
       <h3>Test</h3>
-      <ul>
+      <ol>
         <li>
           <Link to="/test">Test</Link>
         </li>
-      </ul>
+      </ol>
     </>
   )
 }

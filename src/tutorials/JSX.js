@@ -1,35 +1,46 @@
 /*
-  JSX (JavaScript extension)
-  A Syntax extension to JavaScript
-  used for create virtual elements
-  Declarative 
-  Compile to plain JavaScript Object
+  JSX (JavaScript eXtension)
 
-  1 JSX Basic Syntax
-  2 JSX Fragment
-  2 Print variables in JSX
-  3 Conditional rendering in JSX
-  4 List rendering in JSX
+  A Syntax extension to JavaScript.
+  Is is used for making virtual tree.
+  declarative syntax.
+
+  1 Virtual element
+  2 JSX Basic Syntax
+  3 JSX Fragment
+  4 Print variables in JSX
+  5 Conditional rendering in JSX
+  6 List rendering in JSX
 */
 
 
 /*
-  1 JSX Basic Syntax
+  1 Virtual tree
+
+  JSX tree > JS Object > HTML element
 */
 
-export function JSXBasic() {
-  
-  // attributes
-  // className
-  // style
 
+export function VirtualTree() {
+  return <h1>Hello React</h1>
+}
+
+
+/*
+  JSX Basic Syntax
+*/
+
+
+export function JSXBasic() {
   return (
     <form>
       <h1>Google</h1>
       <input
         type="search"
+        id="search"
+        name="q"
         className="class1 class2"
-        style={{ padding: "0.5rem", width: '20rem' }}
+        style={{ outline: "none" }}
         placeholder="Search Google"
         autoComplete="off"
       />
@@ -37,9 +48,11 @@ export function JSXBasic() {
   )
 }
 
+
 /* 
-  2 Fragments
+  Fragments
 */
+
 
 export function Fragment() {
 
@@ -59,19 +72,18 @@ export function Fragment() {
 
 
 /*  
-  3 Print variables in JSX
+  Print variables in JSX
 */
+
 
 export function Print() {
 
-  // Print Variables in JSX
-
-  let cat = {
-    name: 'Kitty',
+  const cat = {
+    name: "Kitty",
     age: 2,
     home: null,
     sound: function () {
-      return 'meow'
+      return "meow"
     }
   }
 
@@ -89,52 +101,53 @@ export function Print() {
 /*
   JSX Conditional rendering
 
-  1 &&(AND)
+  1 && (AND)
   expr1 && expr2 
-  print expr2 if expr1 is considered true.
 
-  2 ||(OR)
+  print expr2 if expr1 is true.
+  not print if expr1 is false
+
+  2 || (OR)
   expr1 || expr2 
-  print expr1 if expr1 is considered true.
-  print expr2 if expr1 is considered false.
 
-  3 ?(Ternary)
+  print expr1 if expr1 is true.
+  print expr2 if expr1 is false.
+
+
+  3 ? (Ternary)
+
   condition ? expr1 : expr2 
   print expr1 if condition is true.
   print expr2 if condition is false.
 */
 
-export function Condition() {
 
-  /*
-    A condition is something that evaluates to true/false. 
-    An expression is just a technical term for "code" really. 
-    It could be anything.
-  */
+export function Condition() {
 
   return (
     <>
-      <h2>JSX Conditional rendering</h2>
+      <h2>Conditional rendering</h2>
 
-      <h3>&&</h3>
-      <p>{true && "나는 보입니다"}</p>
-      <p>{null && "나는 안보입니다"}</p>
+      <h3>&& (AND)</h3>
+      <p>{true && "표현식 2"}</p>
+      <p>{false && "표현식 2"}</p>
 
-      <h3>||</h3>
-      <p>{"나는 보입니다" || "나는 안보입니다"}</p>
-      <p>{null || "나는 보입니다"}</p>
+      <h3>|| (OR)</h3>
+      <p>{"표현식 1" || "표현식 2"}</p>
+      <p>{"" || "표현식 2"}</p>
 
-      <h3>Ternary</h3>
-      <p>{true ? '조건이 참입니다' : '조건이 거짓입니다'}</p>
-      <p>{false ? '조건이 참입니다' : '조건이 거짓입니다'}</p>
+      <h3>? (Ternary)</h3>
+      <p>{true ? "표현식 1" : "표현식 2"}</p>
+      <p>{false ? "표현식 1" : "표현식 2"}</p>
     </>  
   )
 }
 
 
 /*
-  5 List rendering
+  List rendering
 */
+
 
 export function Loop() {
   
@@ -144,13 +157,13 @@ export function Loop() {
     { name: "Asahi", origin: "Japan" }
   ]
   
-  const beerList = beers.map((beer, index) => (
-    <li key={index}>{beer.name}, {beer.origin}</li>
+  const beerList = beers.map((beer) => (
+    <li key={beer.name}>{beer.name}, {beer.origin}</li>
   ))
 
   return (
     <>
-      <h3>World Beers</h3>
+      <h3>List rendering</h3>
       <ul>
         {beerList}
       </ul>

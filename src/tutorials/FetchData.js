@@ -4,17 +4,22 @@ import { useState, useEffect } from 'react';
   Fetch data
 
   1 useEffect Hook
-
   2 data fetching example
 */
 
 
 /*
-  1 useEffect
+  * useEffect
+  give effects on app
 
-  useEffect(effect): excute effect whenever component is rendered.
-  useEffect(effect, []): excute effect only at initial rendering.
-  useEffect(effect, [dep]): excute effect at initial rendering and whenever dependency is changed.
+  1 useEffect(effect)
+  excute effect whenever component is rendered.
+  
+  2 useEffect(effect, []) 
+  excute effect only at initial rendering.
+  
+  3 useEffect(effect, [dep])
+  excute effect at initial rendering and whenever dependency is changed.
 */
 
 export function UseEffectHook() {
@@ -35,7 +40,7 @@ export function UseEffectHook() {
 
 
 /*
-  2 data fetching example
+  Data fetching example
 */
 
 function fetchData() {
@@ -43,7 +48,7 @@ function fetchData() {
   const DATA = {
     username: 'snoop_dogg',
     image: 'https://hips.hearstapps.com/hmg-prod/images/most-interesting-dog-meme-1546529364.png',
-    bio: '반갑네 인간'
+    bio: '멍'
   }
   
   const promise = new Promise((res, rej) => {

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, HashRouter, Routes, Route } from 'react-router
 import Layout from './tutorials/Layout';
 import Concept from './tutorials/Concept';
 import Home from './tutorials/Home';
-import { JSXBasic, Print, Fragment, Condition, Loop } from './tutorials/JSX';
+import { VirtualTree, JSXBasic, Print, Fragment, Condition, Loop } from './tutorials/JSX';
 import { Composition, Props, ChildrenProps, UseContextHook } from './tutorials/Component';
 import { Basic as EventBasic } from './tutorials/Event';
 import { UseStateHook, UpdateWithComposition } from './tutorials/UpdateView';
@@ -22,6 +22,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="concept" element={<Concept />} />
           <Route path="jsx"> 
+            <Route path="virtual-tree" element={<VirtualTree />} />
             <Route path="basic" element={<JSXBasic />} />
             <Route path="fragment" element={<Fragment />} />
             <Route path="print" element={<Print />} />

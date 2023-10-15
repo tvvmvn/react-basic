@@ -11,7 +11,7 @@ import { Routes, Route, Link, useParams } from 'react-router-dom';
 
 
 /*
-  1 Basic Router 
+  Basic Router 
 */
 
 export function BasicRouter() {
@@ -90,7 +90,7 @@ export function BasicRouter() {
 
 
 /*
-  2 Router with auth
+  Router with auth
 */
 
 export function AuthRouter() {
@@ -147,7 +147,7 @@ export function AuthRouter() {
   
     return user ? (
       <p>
-        Hi, {user} {" "}
+        Hi, {user}! {" "}
         <button onClick={() => setUser(null)}>Log out</button>
       </p>
     ) : (
