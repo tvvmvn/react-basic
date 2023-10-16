@@ -51,6 +51,8 @@ export function JSXBasic() {
 
 /* 
   Fragments
+
+  empty tag which wraps entire tree
 */
 
 

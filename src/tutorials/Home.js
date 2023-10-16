@@ -8,7 +8,7 @@ export default function Home() {
       <h3>Intro</h3>
       <ol>
         <li>
-          <Link to="/concept">What is React</Link>
+          <Link to="/concept">Basic</Link>
         </li>
       </ol>
 

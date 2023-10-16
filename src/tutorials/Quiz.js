@@ -10,9 +10,9 @@ import { useState } from 'react'
 
 export function JSX() {
   const beers = [
-    { name: "Heineken", origin: "Netherlands", available: false },
-    { name: "Guinness", origin: "Ireland", available: true },
-    { name: "Asahi", origin: "Japan", available: true }
+    { name: "Guinness", origin: "Ireland", available: false },
+    { name: "Heineken", origin: "Netherlands", available: true },
+    { name: "Budwiser", origin: "USA", available: true }
   ]
 
   const beerRows = beers.map((beer) => (

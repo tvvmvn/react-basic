@@ -4,12 +4,13 @@ export default function Intro() {
 
 /*
 
-  What is React
+  Basic
 
+  1 What is React
   A JavaScript library fot building UI developed by Facebook.
   Most popular Front-End framework.
 
-  * Features
+  2 Features
   1) Components based. 
   component is independent and reusable parts to build completex UIs
 
