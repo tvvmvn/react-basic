@@ -19,6 +19,47 @@ import { useContext, createContext } from 'react';
 
 export function Composition() {
 
+  function Content() {
+    return (
+      <section>
+        <h2>고양이는 액체일까?</h2>
+        <img
+          src="https://mblogthumb-phinf.pstatic.net/MjAxOTA3MDRfMTM2/MDAxNTYyMjE2Mzc1NjQ3.ywQ3_FfZUTmg8oMQSIc3HecxkqJ1vzwq4Pwcu6diyOQg.hkGxwu96hY8E5HZDZnJCL4yXXaITk4-AJhhg8W6u2Ywg.JPEG.with_msip/2-1.jpg?type=w800"
+          alt=""
+          width="100%"
+        />
+      </section>
+    )
+  }
+  
+  
+  function Comments() {
+    return (
+      <section>
+        <h2>댓글</h2>
+        <ul>
+          <li>유치하게 등수는ㅉㅉ 3빠</li>
+          <li>2빠</li>
+          <li>1빠</li>
+        </ul>  
+      </section>
+    )
+  }
+  
+  
+  function Suggested() {
+    return (
+      <section>
+        <h2>추천 영상</h2>
+        <ul>
+          <li>고양이는 정말 폭력적일까?</li>
+          <li>고양이는 정말 자기가 신이라고 생각할까?</li>
+          <li>냥냥펀치는 얼마나 아플까?</li>
+        </ul>  
+      </section>
+    )
+  }
+
   // Main component
   function Snippet() {
     return (
@@ -39,47 +80,6 @@ export function Composition() {
     )
   }
 
-  function Content() {
-    return (
-      <>
-        <h2>고양이는 액체일까?</h2>
-        <img
-          src="https://mblogthumb-phinf.pstatic.net/MjAxOTA3MDRfMTM2/MDAxNTYyMjE2Mzc1NjQ3.ywQ3_FfZUTmg8oMQSIc3HecxkqJ1vzwq4Pwcu6diyOQg.hkGxwu96hY8E5HZDZnJCL4yXXaITk4-AJhhg8W6u2Ywg.JPEG.with_msip/2-1.jpg?type=w800"
-          alt=""
-          width="100%"
-        />
-      </>
-    )
-  }
-  
-  
-  function Comments() {
-    return (
-      <>
-        <h2>댓글</h2>
-        <ul>
-          <li>유치하게 등수는... 3빠</li>
-          <li>2빠</li>
-          <li>1빠</li>
-        </ul>  
-      </>
-    )
-  }
-  
-  
-  function Suggested() {
-    return (
-      <>
-        <h2>추천 영상</h2>
-        <ul>
-          <li>고양이는 정말 폭력적일까?</li>
-          <li>고양이는 정말 자기가 신이라고 생각할까?</li>
-          <li>냥냥펀치는 얼마나 아플까?</li>
-        </ul>  
-      </>
-    )
-  }
-
   return <Snippet /> 
 }
 
@@ -91,6 +91,17 @@ export function Composition() {
 */
 
 export function Props() {
+
+  function Beer({ beer }) {
+
+    return (
+      <ul>
+        <li>이름: {beer.name}</li>
+        <li>원산지: {beer.origin}</li>
+        <li>판매중: {beer.available ? "예" : "아니오"}</li>
+      </ul>  
+    )
+  }
 
   function Snippet() {
     // local variables
@@ -107,42 +118,21 @@ export function Props() {
       </>
     )
   }
-
-  function Beer(props) {
-    
-    console.log(props);
-
-    const beer = props.beer;
-
-    return (
-      <ul>
-        <li>이름: {beer.name}</li>
-        <li>원산지: {beer.origin}</li>
-        <li>판매중: {beer.available ? "예" : "아니오"}</li>
-      </ul>  
-    )
-  }
   
   return <Snippet />
 }
 
 
 /* 
-  - Children props 
-  you can build tree structure with components
+  Children props 
+
+  you can build component tree
 */
 
 export function ChildrenProps() {
 
-  function Snippet() {
-    return (
-      <Layout>
-        <Article />
-      </Layout>
-    )
-  }
-
   function Layout({ children }) {
+
     return (
       <>
         <h1>Instagram</h1>
@@ -154,32 +144,35 @@ export function ChildrenProps() {
           </ul>
         </nav>
   
-        <main style={{ padding: "1rem 0" }}>
+        <main>
           {children}
         </main>
-
-        <footer>
-          <small>2023 &copy; Instagram</small>
-        </footer>
       </>  
     )
   }
   
   function Article() {
     return (
-      <>
+      <section>
         <img
           src="https://external-preview.redd.it/Lpgb3alLNJ0BOp_YH6hj2UaY-N60pmkUHf-gS6hbifE.jpg?auto=webp&s=44a73214eb47bf11c5d5c2dca4d971113c06baf3"
           alt=""
           width="100%"
         />
         <p>
-          <b>snoop_dogg </b> 
-          주인 나가서 한컷.
+          <b>snoop_dogg</b> 주인 나감ㅋ
         </p>
   
         <small>1일 전</small>
-      </>  
+      </section>  
+    )
+  }
+
+  function Snippet() {
+    return (
+      <Layout>
+        <Article />
+      </Layout>
     )
   }
 
@@ -188,27 +181,18 @@ export function ChildrenProps() {
 
 
 /* 
-  - useContext hook 
-  make component pass props to low level component  
+  useContext hook 
+
+  access props that sent from higher component
 */
 
 export function UseContextHook() {
 
-  function Snippet() {
-    return (
-      <AuthProvider>
-        <Layout>
-          <Article />
-        </Layout>
-      </AuthProvider>
-    )
-  }
-
+  // Provider
   const AuthContext = createContext();
 
   function AuthProvider({ children }) {
-
-    // local variables
+    // local scope
     const value = { username: 'bunny' };
   
     return (
@@ -219,7 +203,7 @@ export function UseContextHook() {
   }
   
   function Layout({ children }) {
-  
+
     const auth = useContext(AuthContext);
   
     return (
@@ -235,36 +219,39 @@ export function UseContextHook() {
   
         <p>안녕하세요, {auth.username}님!</p>
         
-        <main style={{ padding: "1rem 0" }}>
+        <main>
           {children}
         </main>
-
-        <footer>
-          <small>2023 &copy; Instagram</small>
-        </footer>
       </>  
     )
   }
   
   
   function Article() {
-  
-    const auth = useContext(AuthContext);
-  
+
     return (
-      <>
+      <section>
         <img
           src="https://external-preview.redd.it/Lpgb3alLNJ0BOp_YH6hj2UaY-N60pmkUHf-gS6hbifE.jpg?auto=webp&s=44a73214eb47bf11c5d5c2dca4d971113c06baf3"
           alt=""
           width="100%"
         />
         <p>
-          <b>snoop_dogg </b> 
-          주인 나가서 한컷.
+          <b>snoop_dogg </b> 주인 나감ㅋ
         </p>
   
         <small>1일 전</small>
-      </>  
+      </section>  
+    )
+  }
+
+  function Snippet() {
+    return (
+      <AuthProvider>
+        <Layout>
+          <Article />
+        </Layout>
+      </AuthProvider>
     )
   }
 

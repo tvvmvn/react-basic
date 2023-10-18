@@ -1,16 +1,15 @@
+/* 
+  event handling in JSX
+
+  onEventName={eventHandler}
+*/
+
 
 export function Basic() {
 
-  function handleClick(e) {
+  function handleClick() {
     alert('lol');
   }
 
-  // onEventName={eventHandler}
-
-  return (
-    <>
-      <h3>Event and EventHandler</h3>      
-      <button onClick={handleClick}>Button</button>
-    </>  
-  )
+  return <button onClick={handleClick}>button</button>
 }

@@ -1,10 +1,11 @@
 import { useState } from 'react';
 
+
 /*
   Update View
 
   1 useState Hook
-  2 update state and composition
+  2 Update higher state
 */
 
 
@@ -13,28 +14,39 @@ import { useState } from 'react';
 
   const [state, setState] = useState(initialValue);
 
-  state: a variable in Component
+  state: variable
   setState(newState): a method that updates state.
   initialValue: initial value of state.
 */
 
+
 export function UseStateHook() {
   const [count, setCount] = useState(0);
+
+  function handleClick() {
+    setCount(count + 1);
+  }
 
   return (
     <>
       <p>count: {count}</p>
-      <button onClick={() => setCount(count + 1)}>+</button>
+      <button onClick={handleClick}>+</button>
     </>
   )
 }
 
+
 /*
-  2 update state and composition
-  A composited Component updates the state of main component.
+  Updates higher state
 */
 
+
 export function UpdateWithComposition() {
+  
+  function Btn({ handleClick }) {
+    return <button onClick={handleClick}>+</button>
+  }
+    
   function Snippet() {
     const [count, setCount] = useState(0);
 
@@ -45,14 +57,8 @@ export function UpdateWithComposition() {
     return (
       <>
         <p>count: {count}</p>
-        <Button handleClick={handleClick} />
+        <Btn handleClick={handleClick} />
       </>  
-    )
-  }
-
-  function Button({ handleClick }) {
-    return (
-      <button onClick={handleClick}>+</button>
     )
   }
 

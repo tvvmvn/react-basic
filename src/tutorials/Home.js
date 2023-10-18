@@ -63,7 +63,7 @@ export default function Home() {
           <Link to="/update-view/usestate">useState Hook</Link>
         </li>
         <li>
-          <Link to="/update-view/composition">Update with Composition</Link>
+          <Link to="/update-view/composition">Update higher state</Link>
         </li>
       </ol>
 

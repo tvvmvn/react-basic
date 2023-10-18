@@ -1,12 +1,12 @@
 import { useState, createContext, useContext } from 'react';
 import { Routes, Route, Link, useParams } from 'react-router-dom';
 
+
 /*
   React Router
 
   1 Basic Router
-
-  2 Router with authorization
+  2 Router with authentication
 */
 
 
@@ -14,11 +14,52 @@ import { Routes, Route, Link, useParams } from 'react-router-dom';
   Basic Router 
 */
 
+
 export function BasicRouter() {
+  
+  function Home() {
+    return <h1>Home</h1>
+  }
+  
+  function Posts() {
+    return (
+      <>
+        <h1>Posts</h1>
+        <ul>
+          <li>
+            <Link to="/router/basic/post/p0">Post 1</Link>
+          </li>
+          <li>
+            <Link to="/router/basic/post/p1">Post 2</Link>
+          </li>
+        </ul>
+      </>
+    )
+  }
+  
+  function Post() {
+    // access url parameter
+    const { postId } = useParams();
+  
+    return (
+      <>
+        <h1>Title</h1>
+        <p>{postId}</p>
+      </>
+    )
+  }
+  
+  function About() {
+    return <h1>About</h1>
+  }
+  
+  function NotFound() {
+    return <h1>404 NotFound</h1>
+  }
 
   function Snippet() {
     return (
-      // You need to replace Fragment to Router Component.
+      // replace Fragment to Router component.
       <> 
         <nav>
           <ul>
@@ -44,46 +85,6 @@ export function BasicRouter() {
       </>
     )
   }
-  
-  function Home() {
-    return <h1>Home</h1>
-  }
-  
-  function Posts() {
-    return (
-      <>
-        <h1>Posts</h1>
-        <ul>
-          <li>
-            <Link to="/router/basic/post/p0">Post 1</Link>
-          </li>
-          <li>
-            <Link to="/router/basic/post/p1">Post 2</Link>
-          </li>
-        </ul>
-      </>
-    )
-  }
-  
-  function Post() {
-    // access parameter
-    const { postId } = useParams();
-  
-    return (
-      <>
-        <h1>Title</h1>
-        <p>{postId}</p>
-      </>
-    )
-  }
-  
-  function About() {
-    return <h1>About</h1>
-  }
-  
-  function NotFound() {
-    return <h1>404 NotFound</h1>
-  }
 
   return <Snippet />
 }
@@ -93,40 +94,8 @@ export function BasicRouter() {
   Router with auth
 */
 
+
 export function AuthRouter() {
-
-  function Snippet() {
-    return (
-      // You need to replace Fragment to Router Component.
-      <>
-        <AuthProvider>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/router/auth/">Home</Link>
-              </li>
-              <li>
-                <Link to="/router/auth/posts">Posts</Link>
-              </li>
-            </ul>
-          </nav>
-
-          <AuthStatus />
-          
-          <Routes>
-            <Route index element={<Home />} />
-            <Route path="posts" element={<Posts />} />
-            <Route path="post/:postId" element={
-              <AuthRequired>
-                <Post />
-              </AuthRequired>
-            } />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </AuthProvider>
-      </>
-    )
-  }
   
   const AuthContext = createContext();
   
@@ -155,30 +124,34 @@ export function AuthRouter() {
     )
   }
 
-  function AuthRequired(props) {
+  function AuthRequired({ children }) {
     const { user, setUser } = useContext(AuthContext);
+    const [username, setUsername] = useState("");
   
     function handleSubmit(e) {
       e.preventDefault();
-  
-      const formData = new FormData(e.target);
 
-      // AJAX Request
+      // AJAX Request..
   
-      setUser(formData.get('username'));
+      setUser(username);
     }
   
     if (!user) {
       return (
         <form onSubmit={handleSubmit}>
           <h1>Login</h1>
-          <input type="text" name="username" required />
+          <input 
+            type="text" 
+            name="username" 
+            onChange={(e) => setUsername(e.target.value)} 
+            required
+          />
           <button type="submit">Login</button>
         </form>
       )
     }
   
-    return props.children;
+    return children;
   }
   
   function Home() {
@@ -214,6 +187,39 @@ export function AuthRouter() {
   
   function NotFound() {
     return <h1>404 NotFound</h1>
+  }
+
+  function Snippet() {
+    return (
+      // replace Fragment to Router Component.
+      <>
+        <AuthProvider>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/router/auth/">Home</Link>
+              </li>
+              <li>
+                <Link to="/router/auth/posts">Posts</Link>
+              </li>
+            </ul>
+          </nav>
+
+          <AuthStatus />
+          
+          <Routes>
+            <Route index element={<Home />} />
+            <Route path="posts" element={<Posts />} />
+            <Route path="post/:postId" element={
+              <AuthRequired>
+                <Post />
+              </AuthRequired>
+            } />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </AuthProvider>
+      </>
+    )
   }
 
   return <Snippet />
