@@ -43,21 +43,21 @@ export function UseStateHook() {
 
 export function UpdateWithComposition() {
   
-  function Btn({ handleClick }) {
-    return <button onClick={handleClick}>+</button>
+  function Lower({ handleCount }) {
+    return <button onClick={handleCount}>+</button>
   }
     
   function Snippet() {
     const [count, setCount] = useState(0);
 
-    function handleClick() {
+    function handleCount() {
       setCount(count + 1);
     }
 
     return (
       <>
         <p>count: {count}</p>
-        <Btn handleClick={handleClick} />
+        <Lower handleCount={handleCount} />
       </>  
     )
   }

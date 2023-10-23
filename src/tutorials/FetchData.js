@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
+
 
 /*
   Fetch data
@@ -9,24 +10,27 @@ import { useState, useEffect } from 'react';
 
 
 /*
-  * useEffect
-  give effects on app
+  useEffect
 
-  1 useEffect(effect)
+  It can give many effects on app
+
+  - use case
+  1) useEffect(effect)
   excute effect whenever component is rendered.
   
-  2 useEffect(effect, []) 
+  2) useEffect(effect, []) 
   excute effect only at initial rendering.
   
-  3 useEffect(effect, [dep])
+  3) useEffect(effect, [dep])
   excute effect at initial rendering and whenever dependency is changed.
 */
+
 
 export function UseEffectHook() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    console.log('rendered at ' + new Date().toLocaleTimeString());
+    console.log("rendered at " + new Date().toLocaleTimeString());
   }, [])
 
   return (
@@ -43,12 +47,12 @@ export function UseEffectHook() {
   Data fetching example
 */
 
-function fetchData() {
 
+function fetchData() {
   const DATA = {
-    username: 'snoop_dogg',
-    image: 'https://hips.hearstapps.com/hmg-prod/images/most-interesting-dog-meme-1546529364.png',
-    bio: '멍'
+    username: "snoop_dogg",
+    image: "https://i.pinimg.com/originals/28/8b/d1/288bd18fd073898a8417c31c77f83059.jpg",
+    bio: "정신이 좀 드는가"
   }
   
   const promise = new Promise((res, rej) => {
@@ -94,10 +98,11 @@ export function DataFetching() {
         src={profile.image}
         alt={profile.username}
         style={{
-          width: '150px',
-          height: '150px',
-          objectFit: 'cover',
-          borderRadius: '50%',
+          width: "100px",
+          height: "100px",
+          objectFit: "cover",
+          border: "1px solid #ddd",
+          borderRadius: "50%",
         }}
       />
       <h3>{profile.username}</h3>

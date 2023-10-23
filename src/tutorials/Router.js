@@ -1,5 +1,5 @@
 import { useState, createContext, useContext } from 'react';
-import { Routes, Route, Link, useParams } from 'react-router-dom';
+import { Router as HashRouter, Routes, Route, Link, useParams } from 'react-router-dom';
 
 
 /*
@@ -131,8 +131,6 @@ export function AuthRouter() {
     function handleSubmit(e) {
       e.preventDefault();
 
-      // AJAX Request..
-  
       setUser(username);
     }
   

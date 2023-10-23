@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 export default function Test() {
   return <Snippet />
@@ -421,4 +421,17 @@ from the DOM, or Unmounting as React likes to call it.
 //   }
 // }
 
-function Snippet() {}
+function Snippet() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    setCount(100)
+  }, [])
+
+  return (
+    <>
+      <p>{count}</p>
+      <button onClick={() => setCount(count + 1)}>button</button>
+    </>  
+  )
+}
