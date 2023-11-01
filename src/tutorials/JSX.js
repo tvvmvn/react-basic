@@ -1,11 +1,11 @@
 /*
   JSX (JavaScript eXtension)
 
-  A Syntax extension to JavaScript.
+  A Syntax extension for JavaScript.
   Is is used for making virtual tree.
-  declarative syntax.
+  Declarative
 
-  1 Virtual element
+  1 Virtual tree and real tree
   2 JSX Basic Syntax
   3 JSX Fragment
   4 Print variables in JSX
@@ -15,9 +15,16 @@
 
 
 /*
-  1 Virtual tree
+  Virtual tree and real tree
+  
+  React transform virtual-tree to real-tree
+  and inject it to document
 
-  JSX tree > JS Object > HTML element
+  1 Virtual tree 
+  tree of js template
+
+  2 Real tree 
+  tree of document
 */
 
 
@@ -27,7 +34,7 @@ export function VirtualTree() {
 
 
 /*
-  JSX Basic Syntax
+  Basic Syntax
 */
 
 
@@ -58,7 +65,7 @@ export function JSXBasic() {
 
 export function Fragment() {
 
-  // elements must be wrapped in one tag.
+  // compare <div></div> with <></>
 
   return (
     <div>
@@ -131,16 +138,23 @@ export function Condition() {
       <h2>Conditional rendering</h2>
 
       <h3>&& (AND)</h3>
-      <p>{true && "표현식 2"}</p>
-      <p>{false && "표현식 2"}</p>
+      <ol>
+        <li>{true && "표현식 2"}</li>
+        <li>{false && "표현식 2"}</li>
+      </ol>
 
       <h3>|| (OR)</h3>
-      <p>{"표현식 1" || "표현식 2"}</p>
-      <p>{"" || "표현식 2"}</p>
+      <ol>
+        <li>{"표현식 1" || "표현식 2"}</li>
+        <li>{"" || "표현식 2"}</li>
+      </ol>
+
 
       <h3>? (Ternary)</h3>
-      <p>{true ? "표현식 1" : "표현식 2"}</p>
-      <p>{false ? "표현식 1" : "표현식 2"}</p>
+      <ol>        
+        <li>{true ? "표현식 1" : "표현식 2"}</li>
+        <li>{false ? "표현식 1" : "표현식 2"}</li>
+      </ol>
     </>  
   )
 }

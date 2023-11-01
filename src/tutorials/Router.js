@@ -59,7 +59,7 @@ export function BasicRouter() {
 
   function Snippet() {
     return (
-      // replace Fragment to Router component.
+      // replace Fragment to Router 
       <> 
         <nav>
           <ul>
@@ -189,7 +189,7 @@ export function AuthRouter() {
 
   function Snippet() {
     return (
-      // replace Fragment to Router Component.
+      // replace Fragment to Router 
       <>
         <AuthProvider>
           <nav>

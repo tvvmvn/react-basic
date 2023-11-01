@@ -2,7 +2,7 @@ import { useContext, createContext } from 'react';
  
 /*
   * React Component
-  Resuable and independent parts to build UI.
+  independent and reusable parts to make UI.
   Component name must starts with uppercase letter.
 
   1 Component Composition
@@ -60,7 +60,7 @@ export function Composition() {
     )
   }
 
-  // Main component
+  // main component
   function Snippet() {
     return (
       <>
@@ -93,18 +93,17 @@ export function Composition() {
 export function Props() {
 
   function Beer({ beer }) {
-
     return (
-      <ul>
-        <li>이름: {beer.name}</li>
-        <li>원산지: {beer.origin}</li>
-        <li>판매중: {beer.available ? "예" : "아니오"}</li>
-      </ul>  
+      <dl>
+        <dt>{beer.name}</dt>
+        <dd>원산지: {beer.origin}</dd>
+        <dd>판매중: {beer.available ? "예" : "아니오"}</dd>
+      </dl>  
     )
   }
 
   function Snippet() {
-    // local variables
+    // local scope
     const irishBeer = { 
       name: "Guinness", 
       origin: "Ireland",
@@ -188,7 +187,7 @@ export function ChildrenProps() {
 
 export function UseContextHook() {
 
-  // Provider
+  // Provider component
   const AuthContext = createContext();
 
   function AuthProvider({ children }) {

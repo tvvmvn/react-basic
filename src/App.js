@@ -6,7 +6,7 @@ import Home from './tutorials/Home';
 import { VirtualTree, JSXBasic, Print, Fragment, Condition, Loop } from './tutorials/JSX';
 import { Composition, Props, ChildrenProps, UseContextHook } from './tutorials/Component';
 import { Basic as EventBasic } from './tutorials/Event';
-import { UseStateHook, UpdateWithComposition } from './tutorials/UpdateView';
+import { UseStateHook, UpdateWithComposition, DynamicStyling } from './tutorials/UpdateView';
 import { BasicRouter, AuthRouter } from './tutorials/Router';
 import { UseEffectHook, DataFetching } from './tutorials/FetchData';
 import { JSX, ComponentComposition, UpdateView } from './tutorials/Quiz';
@@ -41,6 +41,7 @@ export default function App() {
           <Route path="update-view">
             <Route path="usestate" element={<UseStateHook />} />
             <Route path="composition" element={<UpdateWithComposition />} />
+            <Route path="dynamic-style" element={<DynamicStyling />} />
           </Route>
           <Route path="router">
             <Route path="basic/*" element={<BasicRouter />} />

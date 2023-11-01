@@ -21,8 +21,8 @@ import { useState, useEffect } from "react";
   2) useEffect(effect, []) 
   excute effect only at initial rendering.
   
-  3) useEffect(effect, [dep])
-  excute effect at initial rendering and whenever dependency is changed.
+  3) useEffect(effect, [deps])
+  excute effect at initial rendering and whenever deps(dependencies) is updated.
 */
 
 
@@ -48,7 +48,7 @@ export function UseEffectHook() {
 */
 
 
-function fetchData() {
+function getProfile() {
   const DATA = {
     username: "snoop_dogg",
     image: "https://i.pinimg.com/originals/28/8b/d1/288bd18fd073898a8417c31c77f83059.jpg",
@@ -73,7 +73,7 @@ export function DataFetching() {
 
   // operate asynchoronously
   useEffect(() => {
-    fetchData()
+    getProfile()
       .then(data => {
         setProfile(data)
       })

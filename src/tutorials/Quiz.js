@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from "react"
 
 
 /*
@@ -19,7 +19,7 @@ export function JSX() {
     <tr key={beer.name}>
       <td>{beer.name}</td>
       <td>{beer.origin}</td>
-      <td>{beer.available ? "예" : "아니오"}</td>
+      <td>{beer.available ? "Yes" : "No"}</td>
     </tr>  
   ))
 
@@ -44,23 +44,24 @@ export function JSX() {
 
 
 /*
-  Component Composition & Props
-
-  Q. Create view with DATA and following components.
+  Q. Component Composition & Props.
+  Create view with following DATA and components.
   (DATA is local variable in Snippet)
   
-  1 Snippet (Main component)
-  2 Content
-  3 Comments
-  4 Suggested
+  1 DATA
+  video, comments, suggestedVideos
+  
+  2 Components
+  1) Snippet (Main component)
+  2) Content
+  3) Comments
+  4) Suggested
 */
 
 
 export function ComponentComposition() {
 
-  function Content(props) {
-
-    const video = props.video;
+  function Content({ video }) {
 
     return (
       <section>
@@ -72,9 +73,7 @@ export function ComponentComposition() {
     )
   }
   
-  function Comments(props) {
-
-    const comments = props.comments;
+  function Comments({ comments }) {
 
     const commentList = comments.map(comment => (
       <li key={comment.id}>{comment.content}</li>  
@@ -91,9 +90,7 @@ export function ComponentComposition() {
   }
   
   
-  function Suggested(props) {
-
-    const suggestedVideos = props.suggestedVideos;
+  function Suggested({ suggestedVideos }) {
 
     const suggestedVideoList = suggestedVideos.map(video => (
       <li key={video.id}>{video.title}</li>  
@@ -111,22 +108,23 @@ export function ComponentComposition() {
 
   function Snippet() {
 
+    // DATA
     const video = {
-      id: 'v0', 
-      title: '고양이는 액체일까?',
+      id: "v0", 
+      title: "고양이는 액체일까?",
       source: "https://mblogthumb-phinf.pstatic.net/MjAxOTA3MDRfMTM2/MDAxNTYyMjE2Mzc1NjQ3.ywQ3_FfZUTmg8oMQSIc3HecxkqJ1vzwq4Pwcu6diyOQg.hkGxwu96hY8E5HZDZnJCL4yXXaITk4-AJhhg8W6u2Ywg.JPEG.with_msip/2-1.jpg?type=w800"
     }
 
     const comments = [
-      { id: 'c2', content: '유치하게 등수는... 3빠' },
-      { id: 'c1', content: '2빠' },
-      { id: 'c0', content: '1빠' },
+      { id: "c2", content: "유치하게 등수는ㅉㅉ 3빠" },
+      { id: "c1", content: "2빠" },
+      { id: "c0", content: "1빠" },
     ]
 
     const suggestedVideos = [
-      { id: 's2', title: '고양이는 정말 폭력적일까?' },
-      { id: 's1', title: '고양이는 정말 자기가 신이라고 생각할까?' },
-      { id: 's0', title: '냥냥펀치는 얼마나 아플까?' },
+      { id: "s2", title: "고양이는 정말 폭력적일까?" },
+      { id: "s1", title: "고양이는 정말 자기가 신이라고 생각할까?" },
+      { id: "s0", title: "냥냥펀치는 얼마나 아플까?" },
     ]
     
     return (

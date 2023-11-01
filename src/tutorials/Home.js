@@ -65,6 +65,9 @@ export default function Home() {
         <li>
           <Link to="/update-view/composition">Update higher state</Link>
         </li>
+        <li>
+          <Link to="/update-view/dynamic-style">Dynamic styling</Link>
+        </li>
       </ol>
 
       <h3>React Router</h3>
