@@ -1,8 +1,10 @@
 import './App.css';
-import { BrowserRouter as Router, HashRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Layout from './tutorials/Layout';
 import Concept from './tutorials/Concept';
-import Home from './tutorials/Home';
+import Home from './Home';
+import Tutorials from './tutorials/Tutorials';
+import Components from './components/Components';
 import { VirtualTree, JSXBasic, Print, Fragment, Condition, Loop } from './tutorials/JSX';
 import { Composition, Props, ChildrenProps, UseContextHook } from './tutorials/Component';
 import { Basic as EventBasic } from './tutorials/Event';
@@ -10,16 +12,19 @@ import { UseStateHook, UpdateWithComposition, DynamicStyling } from './tutorials
 import { BasicRouter, AuthRouter } from './tutorials/Router';
 import { UseEffectHook, DataFetching } from './tutorials/FetchData';
 import { JSX, ComponentComposition, UpdateView } from './tutorials/Quiz';
-import Test from "./tutorials/Test";
+import Lab from "./Lab";
 import NotFound from './tutorials/NotFound';
 
 export default function App() {
-
   return (
     <HashRouter>
       <Routes>
-        <Route element={<Layout />}>
-          <Route index element={<Home />} />
+        {/* Home */}
+        <Route index element={<Home />} />
+
+        {/* Tutorials */}
+        <Route path="tutorials">
+          <Route index element={<Tutorials />} />
           <Route path="concept" element={<Concept />} />
           <Route path="jsx"> 
             <Route path="virtual-tree" element={<VirtualTree />} />
@@ -57,13 +62,14 @@ export default function App() {
             <Route path="update-view" element={<UpdateView />} />
           </Route>
         </Route>
-        <Route path="/test" element={<Test />} />
+        <Route path="lab" element={<Lab />} />
         <Route path="*" element={<NotFound />} />
+
+        {/* Components */}
+        <Route path="components">
+          <Route index element={<Components />} />
+        </Route>
       </Routes>
     </HashRouter>  
   )
 }
-
-
-
-
