@@ -1,32 +1,26 @@
-import './App.css';
-import { HashRouter, Routes, Route } from 'react-router-dom';
-import Layout from './tutorials/Layout';
-import Concept from './tutorials/Concept';
-import Home from './Home';
-import Tutorials from './tutorials/Tutorials';
-import Components from './components/Components';
-import { VirtualTree, JSXBasic, Print, Fragment, Condition, Loop } from './tutorials/JSX';
-import { Composition, Props, ChildrenProps, UseContextHook } from './tutorials/Component';
-import { Basic as EventBasic } from './tutorials/Event';
-import { UseStateHook, UpdateWithComposition, DynamicStyling } from './tutorials/UpdateView';
-import { BasicRouter, AuthRouter } from './tutorials/Router';
-import { UseEffectHook, DataFetching } from './tutorials/FetchData';
-import { JSX, ComponentComposition, UpdateView } from './tutorials/Quiz';
+import "./App.css";
+import { HashRouter, Routes, Route } from "react-router-dom";
+import Layout from "./tutorials/Layout";
+import Home from "./tutorials/Home";
+import Concept from "./tutorials/Concept";
+import { VirtualTree, JSXBasic, Print, Fragment, Condition, Loop } from "./tutorials/JSX";
+import { Composition, Props, ChildrenProps, UseContextHook } from "./tutorials/Component";
+import { Basic as EventBasic } from "./tutorials/Event";
+import { UseStateHook, UpdateWithComposition, DynamicStyling } from "./tutorials/UpdateView";
+import { BasicRouter, AuthRouter } from "./tutorials/Router";
+import { UseEffectHook, DataFetching } from "./tutorials/FetchData";
+import { JSX, ComponentComposition, UpdateView } from "./tutorials/Quiz";
 import Lab from "./Lab";
-import NotFound from './tutorials/NotFound';
+import NotFound from "./tutorials/NotFound";
 
 export default function App() {
   return (
     <HashRouter>
       <Routes>
-        {/* Home */}
-        <Route index element={<Home />} />
-
-        {/* Tutorials */}
-        <Route path="tutorials">
-          <Route index element={<Tutorials />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
           <Route path="concept" element={<Concept />} />
-          <Route path="jsx"> 
+          <Route path="jsx">
             <Route path="virtual-tree" element={<VirtualTree />} />
             <Route path="basic" element={<JSXBasic />} />
             <Route path="fragment" element={<Fragment />} />
@@ -64,12 +58,7 @@ export default function App() {
         </Route>
         <Route path="lab" element={<Lab />} />
         <Route path="*" element={<NotFound />} />
-
-        {/* Components */}
-        <Route path="components">
-          <Route index element={<Components />} />
-        </Route>
       </Routes>
-    </HashRouter>  
+    </HashRouter>
   )
 }

@@ -1,41 +1,81 @@
 import React, { useState, useEffect, useRef } from "react";
 
-/*
-  React Tutorials
-  + How to use API (Rechart) & quiz
-  + useRef hook
-  + submit/change event
-
-  ---
-
-  React examples
-
-  # todo fragments
-  seed data (with localStorage)
-  get tasks 
-  add task
-  remove task
-  edit task
-  toggle task
-  filtering list
-  button disabled
-  submit event
-  auto cursor
-  
-  # mytube and instagram
-  filtering list
-  autofocus
-  live search
-  survey
-  modal 
-  sidebar
-*/
-
 export default function Lab() {
+  return <Snippet />
+}
+
+// # form
+
+function Snippet() {
+  const [email, setEmail] = useState("");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    console.log("email:", email);
+    setEmail("");
+  }
+
+  function handleChange(e) {
+    setEmail(e.target.value);
+  }
+
   return (
-    <>
-      <h1>Add list</h1>
-    
-    </>  
+    <form onSubmit={handleSubmit}>
+      <h1>Subscribe</h1>
+      <input 
+        type="text"
+        placeholder="bunny@example.com" 
+        value={email}
+        onChange={handleChange} 
+      />
+      <button disabled={!email}>Submit</button>
+    </form>  
   )
 }
+
+// # live search
+
+// function Snippet() {
+//   const [query, setQuery] = useState("");
+//   const list = ["foo", "bar", "baz"];
+
+//   const results = list.filter(item => item.indexOf(query) > -1); 
+
+//   return (
+//     <>
+//       <h1>Live search</h1>
+//       <input type="text" onChange={(e) => setQuery(e.target.value)} />
+
+//       <ul>
+//         {results.map(item => (
+//           <li key={item}>{item}</li>
+//         ))}
+//       </ul>
+//     </>  
+//   )
+// }
+
+
+// # useRef
+
+// function Snippet() {
+
+//   const inputRef = useRef(null);
+
+//   // should access asynchronously
+//   useEffect(() => {
+//     inputRef.current.focus();
+//   }, [])
+
+//   return (
+//     <>
+//       <h1>useRef</h1>
+//       <p>It allows access to real element </p>
+//       <input 
+//         type="text" 
+//         autoFocus 
+//         ref={inputRef}
+//       />
+//     </>  
+//   )
+// }
