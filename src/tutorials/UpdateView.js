@@ -57,6 +57,7 @@ export function UpdateWithComposition() {
 
     return (
       <>
+        <h1>Update higher state</h1>
         <p>count: {count}</p>
         <Lower handleCount={handleCount} />
       </>  
@@ -75,7 +76,7 @@ export function DynamicStyling() {
       <h1>Dynamic styling</h1>
 
       <svg 
-        style={{ width: "2rem", fill: liked && "#00f" }}
+        style={{ width: "2rem", fill: liked ? "#e00" : "#ddd" }}
         onClick={() => setLiked(!liked)}
         xmlns="http://www.w3.org/2000/svg" 
         viewBox="0 0 512 512"

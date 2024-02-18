@@ -4,7 +4,7 @@ export default function Lab() {
   return <Snippet />
 }
 
-// # form
+// # handling form
 
 function Snippet() {
   const [email, setEmail] = useState("");
@@ -21,7 +21,7 @@ function Snippet() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Subscribe</h1>
+      <h1>handling form</h1>
       <input 
         type="text"
         placeholder="bunny@example.com" 
@@ -32,28 +32,6 @@ function Snippet() {
     </form>  
   )
 }
-
-// # live search
-
-// function Snippet() {
-//   const [query, setQuery] = useState("");
-//   const list = ["foo", "bar", "baz"];
-
-//   const results = list.filter(item => item.indexOf(query) > -1); 
-
-//   return (
-//     <>
-//       <h1>Live search</h1>
-//       <input type="text" onChange={(e) => setQuery(e.target.value)} />
-
-//       <ul>
-//         {results.map(item => (
-//           <li key={item}>{item}</li>
-//         ))}
-//       </ul>
-//     </>  
-//   )
-// }
 
 
 // # useRef

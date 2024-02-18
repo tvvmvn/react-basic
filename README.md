@@ -20,7 +20,8 @@
 ### Event
 1. GO
 
-+ form..
+### Form +
+
 
 ### Update View
 1. useState Hook
@@ -37,6 +38,9 @@
 1. useEffect Hook
 2. An example
 
+### Others
+1. API guides 
+2. using image in React app 
 
 
 

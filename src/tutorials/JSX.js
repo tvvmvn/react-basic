@@ -174,7 +174,9 @@ export function Loop() {
   ]
   
   const beerList = beers.map((beer) => (
-    <li key={beer.name}>{beer.name}, {beer.origin}</li>
+    <li key={beer.name}>
+      <b>{beer.name},</b> {beer.origin}
+    </li>
   ))
 
   return (
