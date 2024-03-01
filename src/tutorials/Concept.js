@@ -20,4 +20,12 @@ export default function Intro() {
   3) Single page application (SPA)
   Update view using JavaScript.
   It is fast and smooth  
+
+
+  + react project folder structrue and files below
+
+  index.html
+  index.js
+  App.js
 */
+

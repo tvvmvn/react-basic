@@ -15,8 +15,9 @@ export function JSX() {
     { name: "Budwiser", origin: "USA", available: true }
   ]
 
-  const beerRows = beers.map((beer) => (
+  const beerRows = beers.map((beer, index) => (
     <tr key={beer.name}>
+      <td>{++index}</td>
       <td>{beer.name}</td>
       <td>{beer.origin}</td>
       <td>{beer.available ? "Yes" : "No"}</td>
@@ -29,6 +30,7 @@ export function JSX() {
       <table border="1">
         <thead>
           <tr>
+            <td>No</td>
             <th>이름</th>
             <th>원산지</th>
             <th>판매중</th>
