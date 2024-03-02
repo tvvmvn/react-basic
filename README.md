@@ -3,8 +3,7 @@
 ## `INDEX`
 
 ### Basic
-1. What is React
-2. Hook and useEffect
+1. Go
 
 ### JSX
 1. basic usage
