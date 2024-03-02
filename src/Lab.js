@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function Lab() {
   return <Snippet />
@@ -6,7 +6,15 @@ export default function Lab() {
 
 
 /*
-  * handling form
+* form in React
+
+
+1 form data handling
+It's totally different from HTML.
+handling form data with useState Hook.
+
+2 How to use tricks 
+disabling button or clearing input
 */
 
 
@@ -15,8 +23,9 @@ function Snippet() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    
+    // accessing form data
     console.log("email:", email);
-    setEmail("");
   }
 
   function handleChange(e) {
@@ -25,14 +34,13 @@ function Snippet() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>handling form</h1>
+      <h1>handling form data</h1>
       <input 
         type="text"
         placeholder="bunny@example.com" 
-        value={email}
         onChange={handleChange} 
       />
-      <button disabled={!email}>Submit</button>
+      <button type="submit">Submit</button>
     </form>  
   )
 }
