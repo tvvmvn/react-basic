@@ -80,6 +80,16 @@ export default function Home() {
         </li>
       </ol>
 
+      <h3>Form</h3>
+      <ol>
+        <li>
+          <Link to="/form/data">Handling form data</Link>
+        </li>
+        <li>
+          <Link to="/form/tricks">How to use form tricks</Link>
+        </li>
+      </ol>
+
       <h3>React Router</h3>
       <ol>
         <li>

@@ -7,13 +7,11 @@
 2. Hook and useEffect
 
 ### JSX
-1. virtual tree
-2. basic usage
-3. fragment
-4. print variables
-5. conditional rendering
-6. list rendering
-7. Accessing real tree (useRef)
+1. basic usage
+2. fragment
+3. print variables
+4. conditional rendering
+5. list rendering
 
 ### Basic Hook
 1. useEffect
@@ -23,29 +21,33 @@
 ### Components
 1. Composition
 2. Props
-3. Children props
-4. useContext Hook
+3. Component tree
+4. Data delievery on tree
 
 ### Event
 1. GO
 
-### Form 
-
 ### Update View
-1. useState Hook
+1. An example
 2. Update higher state
 3. Dynamic styling
 
+### Form 
+1. Handling form data
+2. How to use form tricks
+
 ### React Router
 1. Basic router
-2. Auth Router
+2. Router with authentication
 
 ### Fetch Data
 1. An example
 
-### Others
-1. API guides 
+### (Others)
 2. using image in React app 
+
+
+---
 
 
 ## `Tutorial References`

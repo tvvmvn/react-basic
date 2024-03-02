@@ -8,6 +8,7 @@ import { EffectHook, RefHook, StateHook } from "./tutorials/Hook";
 import { Composition, Props, ChildrenProps, UseContextHook } from "./tutorials/Component";
 import { Basic as EventBasic } from "./tutorials/Event";
 import { UseStateHook, UpdateWithComposition, DynamicStyling } from "./tutorials/UpdateView";
+import { HandlingData, Tricks } from "./tutorials/Form";
 import { BasicRouter, AuthRouter } from "./tutorials/Router";
 import { DataFetching } from "./tutorials/FetchData";
 import { JSX, ComponentComposition, UpdateView } from "./tutorials/Quiz";
@@ -46,6 +47,10 @@ export default function App() {
             <Route path="usestate" element={<UseStateHook />} />
             <Route path="composition" element={<UpdateWithComposition />} />
             <Route path="dynamic-style" element={<DynamicStyling />} />
+          </Route>
+          <Route path="form">
+            <Route path="data" element={<HandlingData /> } />
+            <Route path="tricks" element={<Tricks /> } />
           </Route>
           <Route path="router">
             <Route path="basic/*" element={<BasicRouter />} />
