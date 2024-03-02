@@ -6,11 +6,14 @@ export default function Intro() {
   React Basic
 
   1 What is React
+
   A JavaScript library fot building UI 
   developed by Facebook.
   Most popular Front-End framework.
 
+
   2 Features
+
   1) Components based. 
   Component is independent and reusable parts to make UI
 
@@ -22,10 +25,30 @@ export default function Intro() {
   It is fast and smooth  
 
 
-  + react project folder structrue and files below
+  3 React project structure
 
-  index.html
-  index.js
-  App.js
+  1) src/
+  source files
+
+  2) public/
+  static files such as index.html, images and etc.
+
+  3) App.js
+  main components. It is injected to a html file.
+
+  4) node_modules
+  installed packages
+
+  5) package.json
+  project info
+
+  
+  4 Main command
+  
+  1) npm start
+  start server
+
+  2) npm build
+  build project to deploy
 */
 

@@ -4,7 +4,12 @@ export default function Lab() {
   return <Snippet />
 }
 
-// # handling form
+
+/*
+  * handling form
+
+*/
+
 
 function Snippet() {
   const [email, setEmail] = useState("");
@@ -34,7 +39,46 @@ function Snippet() {
 }
 
 
-// # useRef
+/*
+  useEffect
+
+  It can give many effects on app
+
+  - use case
+  1) useEffect(effect)
+  excute effect whenever component is rendered.
+  
+  2) useEffect(effect, []) 
+  excute effect only at initial rendering.
+  
+  3) useEffect(effect, [deps])
+  excute effect at initial rendering and whenever deps(dependencies) is updated.
+*/
+
+
+export function UseEffectHook() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    console.log("rendered at " + new Date().toLocaleTimeString());
+  }, [])
+
+  return (
+    <>
+      <h3>useEffect Hook</h3>
+      <p>{count}</p>
+      <button onClick={() => setCount(count + 1)}>Add</button>
+    </>  
+  )
+}
+
+
+/*
+  * useRef
+
+  It allows to access real element
+*/
+
 
 // function Snippet() {
 
