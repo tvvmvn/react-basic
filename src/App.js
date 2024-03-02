@@ -2,13 +2,14 @@ import "./App.css";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import Layout from "./tutorials/Layout";
 import Home from "./tutorials/Home";
-import Concept from "./tutorials/Concept";
-import { VirtualTree, JSXBasic, Print, Fragment, Condition, Loop } from "./tutorials/JSX";
+import Basic from "./tutorials/Basic";
+import { JSXBasic, Print, Fragment, Condition, Loop } from "./tutorials/JSX";
+import { EffectHook, RefHook, StateHook } from "./tutorials/Hook";
 import { Composition, Props, ChildrenProps, UseContextHook } from "./tutorials/Component";
 import { Basic as EventBasic } from "./tutorials/Event";
 import { UseStateHook, UpdateWithComposition, DynamicStyling } from "./tutorials/UpdateView";
 import { BasicRouter, AuthRouter } from "./tutorials/Router";
-import { UseEffectHook, DataFetching } from "./tutorials/FetchData";
+import { DataFetching } from "./tutorials/FetchData";
 import { JSX, ComponentComposition, UpdateView } from "./tutorials/Quiz";
 import Lab from "./Lab";
 import NotFound from "./tutorials/NotFound";
@@ -19,14 +20,18 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="concept" element={<Concept />} />
+          <Route path="basic" element={<Basic />} />
           <Route path="jsx">
-            <Route path="virtual-tree" element={<VirtualTree />} />
             <Route path="basic" element={<JSXBasic />} />
             <Route path="fragment" element={<Fragment />} />
             <Route path="print" element={<Print />} />
             <Route path="condition" element={<Condition />} />
             <Route path="loop" element={<Loop />} />
+          </Route>
+          <Route path="hook">
+            <Route path="effect" element={<EffectHook />} />
+            <Route path="ref" element={<RefHook />} />
+            <Route path="state" element={<StateHook />} />
           </Route>
           <Route path="components">
             <Route path="composition" element={<Composition />} />
@@ -47,7 +52,6 @@ export default function App() {
             <Route path="auth/*" element={<AuthRouter />} />
           </Route>
           <Route path="fetch-data">
-            <Route path="use-effect" element={<UseEffectHook />} />
             <Route path="examples" element={<DataFetching />} />
           </Route>
           <Route path="quiz">

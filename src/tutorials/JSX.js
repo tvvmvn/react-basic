@@ -5,32 +5,12 @@
   Is is used for making virtual tree.
   Declarative
 
-  1 Virtual tree and real tree
-  2 JSX Basic Syntax
-  3 JSX Fragment
-  4 Print variables in JSX
-  5 Conditional rendering in JSX
-  6 List rendering in JSX
+  1 JSX Basic Syntax
+  2 JSX Fragment
+  3 Print variables in JSX
+  4 Conditional rendering in JSX
+  5 List rendering in JSX
 */
-
-
-/*
-  Virtual tree and real tree
-  
-  React transform virtual-tree to real-tree
-  and inject it to document
-
-  1 Virtual tree 
-  tree of js template
-
-  2 Real tree 
-  tree of document
-*/
-
-
-export function VirtualTree() {
-  return <h1>Hello React</h1>
-}
 
 
 /*

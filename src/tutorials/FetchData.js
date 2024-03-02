@@ -2,49 +2,7 @@ import { useState, useEffect } from "react";
 
 
 /*
-  Fetch data
-
-  1 useEffect Hook
-  2 data fetching example
-*/
-
-
-/*
-  useEffect
-
-  It can give many effects on app
-
-  - use case
-  1) useEffect(effect)
-  excute effect whenever component is rendered.
-  
-  2) useEffect(effect, []) 
-  excute effect only at initial rendering.
-  
-  3) useEffect(effect, [deps])
-  excute effect at initial rendering and whenever deps(dependencies) is updated.
-*/
-
-
-export function UseEffectHook() {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    console.log("rendered at " + new Date().toLocaleTimeString());
-  }, [])
-
-  return (
-    <>
-      <h3>useEffect Hook</h3>
-      <p>{count}</p>
-      <button onClick={() => setCount(count + 1)}>Add</button>
-    </>  
-  )
-}
-
-
-/*
-  Data fetching example
+  An example
 */
 
 

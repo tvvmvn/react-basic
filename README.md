@@ -15,6 +15,11 @@
 6. list rendering
 7. Accessing real tree (useRef)
 
+### Basic Hook
+1. useEffect
+2. useRef
+3. useState
+
 ### Components
 1. Composition
 2. Props
@@ -59,8 +64,8 @@ Component is independent and reusable parts to make UI
 2. Declarative programming \
 easy to use just like HTML
 
-4. Single page application (SPA) \
-Update view using JavaScript.
+3. Single page application (SPA) \
+Update View using JavaScript.
 It is fast and smooth  
 
 ### React project structure

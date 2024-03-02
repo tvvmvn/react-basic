@@ -5,18 +5,15 @@ export default function Home() {
     <>
       <h1>React Tutorials</h1>
 
-      <h3>Intro</h3>
+      <h3>Basic</h3>
       <ol>
         <li>
-          <Link to="/concept">Basic</Link>
+          <Link to="/basic">Go</Link>
         </li>
       </ol>
 
       <h3>JSX</h3>
       <ol>
-        <li>
-          <Link to="/jsx/virtual-tree">Virtual tree</Link>
-        </li>
         <li>
           <Link to="/jsx/basic">Basic Usage</Link>
         </li>
@@ -34,6 +31,19 @@ export default function Home() {
         </li>
       </ol>
 
+      <h3>Basic Hook</h3>
+      <ol>
+        <li>
+          <Link to="/hook/effect">useEffect</Link>
+        </li>
+        <li>
+          <Link to="/hook/ref">useRef</Link>
+        </li>
+        <li>
+          <Link to="/hook/state">useState</Link>
+        </li>
+      </ol>
+
       <h3>Components</h3>
       <ol>
         <li>
@@ -43,10 +53,10 @@ export default function Home() {
           <Link to="/components/props">Props</Link>
         </li>
         <li>
-          <Link to="/components/children-props">Children props</Link>
+          <Link to="/components/children-props">Component tree</Link>
         </li>
         <li>
-          <Link to="/components/use-context">useContext Hook</Link>
+          <Link to="/components/use-context">Data delievery on tree</Link>
         </li>
       </ol>
 
@@ -60,7 +70,7 @@ export default function Home() {
       <h3>Update View</h3>
       <ol>
         <li>
-          <Link to="/update-view/usestate">useState Hook</Link>
+          <Link to="/update-view/usestate">An example</Link>
         </li>
         <li>
           <Link to="/update-view/composition">Update higher state</Link>
@@ -82,9 +92,6 @@ export default function Home() {
 
       <h3>Fetch data</h3>
       <ol>
-        <li>
-          <Link to="/fetch-data/use-effect">useEffect Hook</Link>
-        </li>
         <li>
           <Link to="/fetch-data/examples">Examples</Link>
         </li>

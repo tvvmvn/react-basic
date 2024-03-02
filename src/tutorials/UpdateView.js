@@ -4,20 +4,9 @@ import { useState } from 'react';
 /*
   Update View
 
-  1 useState Hook
+  1 An example
   2 Update higher state
   3 dynamic styling
-*/
-
-
-/*
-  useState Hook
-
-  const [state, setState] = useState(initialValue);
-
-  1 state: variable in component
-  2 setState(newState): function that updates state.
-  3 initialValue: initial value of state.
 */
 
 
@@ -66,6 +55,11 @@ export function UpdateWithComposition() {
 
   return <Snippet />
 }
+
+
+/*
+  Dynamic Styling
+*/
 
 
 export function DynamicStyling() {
