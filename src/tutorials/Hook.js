@@ -16,6 +16,9 @@ import { useEffect, useRef, useState } from "react";
   useEffect
 
   you can give many effects with it to app.
+  
+  - effects examples
+  data fetching, access real element, ..
 
   - use case
   1) useEffect(effect)

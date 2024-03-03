@@ -4,13 +4,12 @@ import Layout from "./tutorials/Layout";
 import Home from "./tutorials/Home";
 import Basic from "./tutorials/Basic";
 import { JSXBasic, Print, Fragment, Condition, Loop } from "./tutorials/JSX";
-import { EffectHook, RefHook, StateHook } from "./tutorials/Hook";
 import { Composition, Props, ChildrenProps, UseContextHook } from "./tutorials/Component";
 import { Basic as EventBasic } from "./tutorials/Event";
-import { UseStateHook, UpdateWithComposition, DynamicStyling } from "./tutorials/UpdateView";
+import { UseStateHook, DynamicStyling } from "./tutorials/UpdateView";
 import { HandlingData, Tricks } from "./tutorials/Form";
 import { BasicRouter, AuthRouter } from "./tutorials/Router";
-import { DataFetching } from "./tutorials/FetchData";
+import { EffectHook, DataFetching } from "./tutorials/FetchData";
 import { JSX, ComponentComposition, UpdateView } from "./tutorials/Quiz";
 import Lab from "./Lab";
 import NotFound from "./tutorials/NotFound";
@@ -29,11 +28,6 @@ export default function App() {
             <Route path="condition" element={<Condition />} />
             <Route path="loop" element={<Loop />} />
           </Route>
-          <Route path="hook">
-            <Route path="effect" element={<EffectHook />} />
-            <Route path="ref" element={<RefHook />} />
-            <Route path="state" element={<StateHook />} />
-          </Route>
           <Route path="components">
             <Route path="composition" element={<Composition />} />
             <Route path="props" element={<Props />} />
@@ -45,7 +39,6 @@ export default function App() {
           </Route>
           <Route path="update-view">
             <Route path="usestate" element={<UseStateHook />} />
-            <Route path="composition" element={<UpdateWithComposition />} />
             <Route path="dynamic-style" element={<DynamicStyling />} />
           </Route>
           <Route path="form">
@@ -57,6 +50,7 @@ export default function App() {
             <Route path="auth/*" element={<AuthRouter />} />
           </Route>
           <Route path="fetch-data">
+            <Route path="effect-hook" element={<EffectHook />} />
             <Route path="examples" element={<DataFetching />} />
           </Route>
           <Route path="quiz">

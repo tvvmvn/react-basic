@@ -4,9 +4,24 @@ import { useState } from 'react';
 /*
   Update View
 
-  1 An example
-  2 Update higher state
-  3 dynamic styling
+  1 Basic example
+  2 Dynamic styling
+*/
+
+
+/*
+  An basic example
+  It is achieved by useState Hook.
+
+  ---
+  
+  useState Hook
+
+  const [state, setState] = useState(initialValue);
+
+  1 state: variable in component
+  2 setState(newState): function that updates state.
+  3 initialValue: initial value of state.
 */
 
 
@@ -23,37 +38,6 @@ export function UseStateHook() {
       <button onClick={handleClick}>+</button>
     </>
   )
-}
-
-
-/*
-  Updates higher state
-*/
-
-
-export function UpdateWithComposition() {
-  
-  function Lower({ handleCount }) {
-    return <button onClick={handleCount}>+</button>
-  }
-    
-  function Snippet() {
-    const [count, setCount] = useState(0);
-
-    function handleCount() {
-      setCount(count + 1);
-    }
-
-    return (
-      <>
-        <h1>Update higher state</h1>
-        <p>count: {count}</p>
-        <Lower handleCount={handleCount} />
-      </>  
-    )
-  }
-
-  return <Snippet />
 }
 
 

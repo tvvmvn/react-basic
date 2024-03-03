@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+
 
 /*
   * form in React
@@ -8,7 +9,6 @@ import { useState } from "react";
   handling form data with useState Hook.
 
   2 How to use tricks 
-  disabling button or clearing input
 */
 
 
@@ -39,8 +39,19 @@ export function HandlingData() {
   )
 }
 
+
+/*
+  form tricks
+
+  1 dynamic button
+  2 clearing input after submit
+  3 auto focus
+*/
+
+
 export function Tricks() {
   const [email, setEmail] = useState("");
+  const inputRef = useRef(null);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -54,14 +65,23 @@ export function Tricks() {
     setEmail(e.target.value);
   }
 
+  // asynchronous
+  useEffect(() => {
+    // access real input element
+    console.log("element:", inputRef.current);
+
+    inputRef.current.focus();
+  })
+
   return (
     <form onSubmit={handleSubmit}>
-      <h1>handling form data</h1>
+      <h1>Form tricks</h1>
       <input 
         type="text"
         value={email}
         placeholder="bunny@example.com" 
         onChange={handleChange} 
+        ref={inputRef}
       />
       <button type="submit" disabled={!email}>
         Submit

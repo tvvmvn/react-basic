@@ -2,6 +2,53 @@ import { useState, useEffect } from "react";
 
 
 /*
+  Data fetching
+
+  1 useEffect Hook
+  2 An example
+*/
+
+
+/*
+  useEffect
+
+  you can give many effects with it to app.
+  
+  - effects examples
+  data fetching, access real element, ..
+
+
+  - use case
+  1) useEffect(effect)
+  excute effect whenever component is rendered.
+  
+  2) useEffect(effect, []) 
+  excute effect only at initial rendering.
+  
+  3) useEffect(effect, [deps])
+  excute effect at initial rendering and whenever deps(dependencies) is updated.
+*/
+
+
+export function EffectHook() {
+  const [count, setCount] = useState(0);
+  
+  useEffect(() => {
+    // alarm on or off
+    console.log("increased");
+  }, [])
+
+  return (
+    <>
+      <h1>useEffect</h1>
+      <p>{count}</p>
+      <button onClick={() => setCount(count + 1)}>+</button>
+    </>  
+  )
+}
+
+
+/*
   An example
 */
 
@@ -29,7 +76,7 @@ export function DataFetching() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [profile, setProfile] = useState(null);
 
-  // operate asynchoronously
+  // asynchronous
   useEffect(() => {
     getProfile()
       .then(data => {

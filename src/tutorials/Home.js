@@ -31,19 +31,6 @@ export default function Home() {
         </li>
       </ol>
 
-      <h3>Basic Hook</h3>
-      <ol>
-        <li>
-          <Link to="/hook/effect">useEffect</Link>
-        </li>
-        <li>
-          <Link to="/hook/ref">useRef</Link>
-        </li>
-        <li>
-          <Link to="/hook/state">useState</Link>
-        </li>
-      </ol>
-
       <h3>Components</h3>
       <ol>
         <li>
@@ -73,9 +60,6 @@ export default function Home() {
           <Link to="/update-view/usestate">An example</Link>
         </li>
         <li>
-          <Link to="/update-view/composition">Update higher state</Link>
-        </li>
-        <li>
           <Link to="/update-view/dynamic-style">Dynamic styling</Link>
         </li>
       </ol>
@@ -102,6 +86,9 @@ export default function Home() {
 
       <h3>Fetch data</h3>
       <ol>
+        <li>
+          <Link to="/fetch-data/effect-hook">useEffect Hook</Link>
+        </li>
         <li>
           <Link to="/fetch-data/examples">Examples</Link>
         </li>
