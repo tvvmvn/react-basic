@@ -39,23 +39,25 @@ export function JSXBasic() {
 /* 
   Fragments
 
-  empty tag which wraps entire tree
+  Entire tree should be wrapped by one tag.
+  you can use fragments if you don't want to make a tag
+  unnecessarily
 */
 
 
 export function Fragment() {
 
-  // compare <div></div> with <></>
-
   return (
-    <div>
-      <h1>JSX Fragment</h1>
+    // fragments
+    <> 
+      <h1>Heading</h1>
+
       <ul>
         <li>list item</li>
         <li>list item</li>
         <li>list item</li>
       </ul>
-    </div>  
+    </>  
   )
 }
 
@@ -93,21 +95,20 @@ export function Print() {
   1 && (AND)
   expr1 && expr2 
 
-  print expr2 if expr1 is true.
-  not print if expr1 is false
+  if expr1 is true, print expr2. 
+  if expr1 is false, print nothing.
 
   2 || (OR)
   expr1 || expr2 
 
-  print expr1 if expr1 is true.
-  print expr2 if expr1 is false.
+  if expr1 is true, print expr1 
+  if expr1 is false, print expr2 
 
-
-  3 ? (Ternary)
+  3 Ternary
 
   condition ? expr1 : expr2 
-  print expr1 if condition is true.
-  print expr2 if condition is false.
+  if condition is true, print expr1
+  if condition is false, print expr2
 */
 
 
@@ -126,7 +127,7 @@ export function Condition() {
       <h3>|| (OR)</h3>
       <ol>
         <li>{"표현식 1" || "표현식 2"}</li>
-        <li>{"" || "표현식 2"}</li>
+        <li>{false || "표현식 2"}</li>
       </ol>
 
 
@@ -154,6 +155,7 @@ export function Loop() {
   ]
   
   const beerList = beers.map((beer) => (
+    // list rendering needs key. It should be unique value. 
     <li key={beer.name}>
       <b>{beer.name},</b> {beer.origin}
     </li>

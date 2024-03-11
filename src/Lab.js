@@ -10,5 +10,18 @@ export default function Lab() {
   return <Snippet />
 }
 
+function Snippet() {
+  const inputRef = useRef(null);
+  
+  // async
+  useEffect(() => {
+    console.log(inputRef.current);
+  });
 
-function Snippet() {}
+  return (
+    <div>
+      <h1>Accessing real element</h1>
+      <input type="text" ref={inputRef} />
+    </div>  
+  )
+}

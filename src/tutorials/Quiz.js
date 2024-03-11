@@ -9,6 +9,7 @@ import { useState } from "react"
 
 
 export function JSX() {
+  
   const beers = [
     { name: "Guinness", origin: "Ireland", available: false },
     { name: "Heineken", origin: "Netherlands", available: true },
@@ -20,9 +21,9 @@ export function JSX() {
       <td>{++index}</td>
       <td>{beer.name}</td>
       <td>{beer.origin}</td>
-      <td>{beer.available ? "Yes" : "No"}</td>
+      <td>{beer.available ? "예" : "아니오"}</td>
     </tr>  
-  ))
+  ));
 
   return (
     <>

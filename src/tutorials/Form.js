@@ -43,9 +43,9 @@ export function HandlingData() {
 /*
   form tricks
 
-  1 dynamic button
-  2 clearing input after submit
-  3 auto focus
+  1 dynamic button - login form
+  2 clearing input after submit - todo form
+  3 auto focus - search form
 */
 
 
@@ -65,11 +65,7 @@ export function Tricks() {
     setEmail(e.target.value);
   }
 
-  // asynchronous
   useEffect(() => {
-    // access real input element
-    console.log("element:", inputRef.current);
-
     inputRef.current.focus();
   })
 

@@ -2,7 +2,9 @@ import "./App.css";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import Layout from "./tutorials/Layout";
 import Home from "./tutorials/Home";
-import Basic from "./tutorials/Basic";
+import Lab from "./Lab";
+import NotFound from "./tutorials/NotFound";
+import { Basic, Element, RefHook } from "./tutorials/Basic";
 import { JSXBasic, Print, Fragment, Condition, Loop } from "./tutorials/JSX";
 import { Composition, Props, ChildrenProps, UseContextHook } from "./tutorials/Component";
 import { Basic as EventBasic } from "./tutorials/Event";
@@ -11,8 +13,6 @@ import { HandlingData, Tricks } from "./tutorials/Form";
 import { BasicRouter, AuthRouter } from "./tutorials/Router";
 import { EffectHook, DataFetching } from "./tutorials/FetchData";
 import { JSX, ComponentComposition, UpdateView } from "./tutorials/Quiz";
-import Lab from "./Lab";
-import NotFound from "./tutorials/NotFound";
 
 export default function App() {
   return (
@@ -20,7 +20,11 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="basic" element={<Basic />} />
+          <Route path="basic">
+            <Route path="usage" element={<Basic />} />
+            <Route path="element" element={<Element />} />
+            <Route path="ref-hook" element={<RefHook />} />
+          </Route>
           <Route path="jsx">
             <Route path="basic" element={<JSXBasic />} />
             <Route path="fragment" element={<Fragment />} />

@@ -8,7 +8,13 @@ export default function Home() {
       <h3>Basic</h3>
       <ol>
         <li>
-          <Link to="/basic">Go</Link>
+          <Link to="/basic/usage">Basic Usage</Link>
+        </li>
+        <li>
+          <Link to="/basic/element">Accessing real element</Link>
+        </li>
+        <li>
+          <Link to="/basic/ref-hook">useRef Hook</Link>
         </li>
       </ol>
 
@@ -21,7 +27,7 @@ export default function Home() {
           <Link to="/jsx/fragment">Fragment</Link>
         </li>
         <li>
-          <Link to="/jsx/print">Print</Link>
+          <Link to="/jsx/print">Print variables</Link>
         </li>
         <li>
           <Link to="/jsx/condition">Conditional rendering</Link>

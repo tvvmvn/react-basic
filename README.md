@@ -1,8 +1,12 @@
 # React Tutorials 📖
 
 
-## `What is React`
+## Website
 
+> https://tvvmvn.github.io/react-basic
+
+
+## What is React
 
 ### Concept
 A JavaScript library fot building UI developed by Facebook.
@@ -20,11 +24,12 @@ Update View using JavaScript.
 It is fast and smooth  
 
 
-## `Table of Contents`
-
+## Table of Contents
 
 ### Basic
-1. Go
+1. Basic Usage
+2. Accessing real element
+3. useRef Hook
 
 ### JSX
 1. basic usage
@@ -58,32 +63,3 @@ It is fast and smooth
 1. An example
 
 <!-- how to use image in app  -->
-
-
-## `React project structure`
-
-
-1. App.js \
-A main component injected to index.html
-
-2. src/ \
-source files
-
-3. public/ \
-static files such as index.html, images and etc.
-
-4. package.json \
-project info - name, version, packages list, and etc.
-
-5. node_modules \
-It stores installed packages.
-
-
-## `Main commands for React app`
-
-
-1. npm start \
-start server. default address is localhost:3000
-
-2. npm build \
-build project to deploy app.
