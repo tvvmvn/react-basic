@@ -7,16 +7,29 @@ import {
 /*
   Basic
 
-  1 basic usage
-  2 accessing real element
+  1 Basic usage
+  2 Accessing real element
   3 useRef Hook
 */
 
 
+/*
+  Basic usage
+
+  virtual tree is converted to real tree 
+  and injected to document.
+*/
+
+
 export function Basic() {
-  //  It's not HTML. It is JSX.
+  //  virtual tree
   return <h1>Hello React!</h1>
 }
+
+
+/*
+  Accessing real element
+*/
 
 
 export function Element() {
@@ -26,7 +39,6 @@ export function Element() {
     console.log(document.getElementById("input"));
   });
 
-  // inject tree to document.
   return (
     <div>
       <h1>Accessing real element</h1>
@@ -34,6 +46,13 @@ export function Element() {
     </div>  
   )
 }
+
+
+/*
+  useRef Hook
+
+  It is used to access real element.
+*/
 
 
 export function RefHook() {

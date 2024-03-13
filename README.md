@@ -2,8 +2,7 @@
 
 
 ## Website
-
-> https://tvvmvn.github.io/react-basic
+https://tvvmvn.github.io/react-basic
 
 
 ## What is React
@@ -14,10 +13,10 @@ Most popular Front-End framework.
 
 ### Features
 1. Components based. \
-Component is independent and reusable parts to make UI
+Component is independent and reusable parts to build UI
 
 2. Declarative programming \
-easy to use just like HTML
+Easy to use just like HTML
 
 3. Single page application (SPA) \
 Update View using JavaScript.
@@ -32,11 +31,11 @@ It is fast and smooth
 3. useRef Hook
 
 ### JSX
-1. basic usage
-2. fragment
-3. print variables
-4. conditional rendering
-5. list rendering
+1. Basic usage
+2. Fragments
+3. Print variables
+4. Conditional rendering
+5. List rendering
 
 ### Components
 1. Composition

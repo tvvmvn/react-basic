@@ -3,7 +3,7 @@
 
   A Syntax extension for JavaScript.
   Is is used for making virtual tree.
-  Declarative
+  Declarative syntax
 
   1 JSX Basic Syntax
   2 JSX Fragment
