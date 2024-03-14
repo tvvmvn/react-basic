@@ -1,14 +1,15 @@
 import { useContext, createContext } from 'react';
  
+
 /*
   * React Component
-  independent and reusable parts to make UI.
+  independent and reusable parts to build UI.
   Component name must starts with uppercase letter.
 
   1 Component Composition
   2 props
-  3 children props
-  4 useContext Hook
+  3 Componenet tree
+  4 Data delivery on tree
 */
 
 
@@ -37,20 +38,18 @@ export function Composition() {
     )
   }
   
-  
   function Reviews() {
     return (
       <section>
         <h3>Customer Reviews</h3>
         <ul>
           <li>I love the design!</li>
-          <li>poor quality. </li>
+          <li>Poor quality. </li>
           <li>Great product!</li>
         </ul>  
       </section>
     )
   }
-  
   
   function Suggested() {
     return (
@@ -98,6 +97,9 @@ export function Composition() {
 export function Props() {
 
   function Profile({ profile }) {
+
+    console.log(profile);
+    
     return (
       <section>
         <h3>{profile.username}</h3>

@@ -49,7 +49,7 @@ export default function Home() {
           <Link to="/components/children-props">Component tree</Link>
         </li>
         <li>
-          <Link to="/components/use-context">Data delievery on tree</Link>
+          <Link to="/components/use-context">Data delivery on tree</Link>
         </li>
       </ol>
 
@@ -103,7 +103,10 @@ export default function Home() {
       <h3>Quiz</h3>
       <ol>
         <li>
-          <Link to="/quiz/jsx">JSX</Link>
+          <Link to="/quiz/jsx1">JSX 1</Link>
+        </li>
+        <li>
+          <Link to="/quiz/jsx2">JSX 2</Link>
         </li>
         <li>
           <Link to="/quiz/component/composition">Component</Link>

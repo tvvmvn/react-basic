@@ -4,21 +4,45 @@ import { useState } from "react"
 /*
   JSX rendering
 
-  Q. Create following table
+  Q. Create list on the screen refers to data below.
 */
 
 
-export function JSX() {
+export function JSX1() {
+  const country = {
+    capitalCity: "서울",
+    name: "대한민국",
+    population: 5000,
+    language: "한국어",
+    isG7: false,
+  }
+
+  return (
+    <>
+      <h1>Q. JSX 1</h1>
+      <h3>{country.name}</h3>
+      <ul>
+        <li>수도: {country.capitalCity}</li>
+        <li>인구: 약 {country.population.toLocaleString()}만 명</li>
+        <li>언어: {country.language}</li>
+        <li>G7 여부: {country.isG7 ? "예" : "아니오"}</li>
+      </ul>
+    </>  
+  )
+}
+
+
+export function JSX2() {
   
   const beers = [
-    { name: "Guinness", origin: "Ireland", available: false },
-    { name: "Heineken", origin: "Netherlands", available: true },
-    { name: "Budwiser", origin: "USA", available: true }
+    { id: 1, name: "Guinness", origin: "Ireland", available: false },
+    { id: 2, name: "Heineken", origin: "Netherlands", available: true },
+    { id: 3, name: "Budwiser", origin: "USA", available: true }
   ]
 
-  const beerRows = beers.map((beer, index) => (
-    <tr key={beer.name}>
-      <td>{++index}</td>
+  const beerRows = beers.map(beer => (
+    <tr key={beer.id}>
+      <td>{beer.id}</td>
       <td>{beer.name}</td>
       <td>{beer.origin}</td>
       <td>{beer.available ? "예" : "아니오"}</td>
@@ -27,11 +51,13 @@ export function JSX() {
 
   return (
     <>
-      <h1>Beers</h1>
+      <h1>Q. JSX 2</h1>
+      
+      <h3>세계 맥주</h3>
       <table border="1">
         <thead>
           <tr>
-            <td>No</td>
+            <td>ID</td>
             <th>이름</th>
             <th>원산지</th>
             <th>판매중</th>
@@ -47,49 +73,47 @@ export function JSX() {
 
 
 /*
-  Q. Component Composition & Props.
+  Q. Props
 
-  When VIEW is like the left screen,
-  Complete components.
+  complete a Content component.
 */
 
 
-export function ComponentComposition() {
+export function Props() {
   
-  function Articles({ articles }) {
+  function Content({ video }) {
     return (
       <section>
-        <h3>The latest articles</h3>
-        
-        <ul>
-          {articles.map(article => (
-            <li key={article.id}>
-              <b>{article.category}</b> {article.title}
-            </li>  
-          ))}
-        </ul>
+        <h3>{video.title}</h3>
+        <img src={video.source} width="200" />
+        <p>
+          {video.views} views
+        </p>
       </section>  
     )
   }
 
-  function Foo() {}
-
-  // main
   function Snippet() {
 
-    const DATA = [
-      { id: "a2", category: "Economics", title: "this is a title" },
-      { id: "a1", category: "Sports", title: "this is a title" },
-      { id: "a0", category: "Entertainment", title: "this is a title" },
-    ]
+    const DATA = {
+      title: "고양이는 액체일까?",
+      author: "Who",
+      source: "https://i.pinimg.com/736x/e8/25/eb/e825ebee0d666bb63a86ab80405670e3.jpg",
+      views: 99,
+    }
 
     return (
       <>
-        <h1>News</h1>
-        
-        <Articles articles={DATA} />
-        {/* additionally.. */}
-        <Foo data={DATA} />
+        <h1>YouTube.com</h1>
+
+        <Content video={DATA} />
+
+        <h3>댓글</h3>
+        <ul>
+          <li>유치하게 등수는ㅉㅉ 3빠</li>
+          <li>2빠</li>
+          <li>1빠</li>
+        </ul>
       </>  
     )
   }

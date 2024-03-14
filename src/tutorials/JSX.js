@@ -5,11 +5,11 @@
   Is is used for making virtual tree.
   Declarative syntax
 
-  1 JSX Basic Syntax
-  2 JSX Fragment
-  3 Print variables in JSX
-  4 Conditional rendering in JSX
-  5 List rendering in JSX
+  1 Basic Syntax
+  2 Fragments
+  3 Print variables 
+  4 Conditional rendering 
+  5 List rendering 
 */
 
 
@@ -27,7 +27,7 @@ export function JSXBasic() {
         id="search"
         name="q"
         className="class1 class2"
-        style={{ outline: "none" }}
+        style={{ display: "inline-block" }}
         placeholder="Search Google"
         autoComplete="off"
       />
@@ -39,9 +39,9 @@ export function JSXBasic() {
 /* 
   Fragments
 
-  Entire tree should be wrapped by one tag.
+  Entire tree should be wrapped by one tag in JSX.
   you can use fragments if you don't want to make a tag
-  unnecessarily
+  unnecessarily.
 */
 
 
@@ -90,7 +90,7 @@ export function Print() {
 
 
 /*
-  JSX Conditional rendering
+  Conditional rendering
 
   1 && (AND)
   expr1 && expr2 
@@ -105,8 +105,8 @@ export function Print() {
   if expr1 is false, print expr2 
 
   3 Ternary
-
   condition ? expr1 : expr2 
+  
   if condition is true, print expr1
   if condition is false, print expr2
 */
@@ -127,7 +127,7 @@ export function Condition() {
       <h3>|| (OR)</h3>
       <ol>
         <li>{"표현식 1" || "표현식 2"}</li>
-        <li>{false || "표현식 2"}</li>
+        <li>{"" || "표현식 2"}</li>
       </ol>
 
 
@@ -157,7 +157,7 @@ export function Loop() {
   const beerList = beers.map((beer) => (
     // list rendering needs key. It should be unique value. 
     <li key={beer.name}>
-      <b>{beer.name},</b> {beer.origin}
+      <b>{beer.name}</b> - {beer.origin}
     </li>
   ))
 

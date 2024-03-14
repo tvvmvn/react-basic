@@ -12,13 +12,13 @@ A JavaScript library fot building UI developed by Facebook.
 Most popular Front-End framework.
 
 ### Features
-1. Components based. \
+1. Components Based \
 Component is independent and reusable parts to build UI
 
-2. Declarative programming \
+2. Declarative Programming \
 Easy to use just like HTML
 
-3. Single page application (SPA) \
+3. Single Page Application (SPA) \
 Update View using JavaScript.
 It is fast and smooth  
 
@@ -41,7 +41,7 @@ It is fast and smooth
 1. Composition
 2. Props
 3. Component tree
-4. Data delievery on tree
+4. Data delivery on tree
 
 ### Event
 1. GO

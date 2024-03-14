@@ -36,13 +36,13 @@ export function Element() {
   
   // async
   useEffect(() => {
-    console.log(document.getElementById("input"));
+    console.log(document.getElementById("btn"));
   });
 
   return (
     <div>
       <h1>Accessing real element</h1>
-      <input id="input" type="text" />
+      <button id="btn">나 잡아봐라</button>
     </div>  
   )
 }
@@ -56,16 +56,16 @@ export function Element() {
 
 
 export function RefHook() {
-  const inputRef = useRef(null);
+  const buttonRef = useRef(null);
 
   useEffect(() => {
-    console.log(inputRef.current);
+    console.log(buttonRef.current);
   });
 
   return (
     <div>
       <h1>Accessing real element</h1>
-      <input id="input" type="text" ref={inputRef} />
+      <button ref={buttonRef}>button</button>
     </div>  
   )
 }
