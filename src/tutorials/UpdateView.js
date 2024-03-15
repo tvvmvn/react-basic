@@ -57,7 +57,7 @@ export function DynamicStyling() {
       <h1>Likes button</h1>
 
       <svg 
-        style={{ width: "2rem", fill: liked && "#e00" }}
+        style={{ width: "2rem", fill: liked ? "#e00" : "#000" }}
         onClick={handleClick}
         xmlns="http://www.w3.org/2000/svg" 
         viewBox="0 0 512 512"
