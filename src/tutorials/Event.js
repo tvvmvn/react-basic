@@ -1,7 +1,5 @@
 /* 
-  event handling in JSX
-
-  onEventName={eventHandler}
+  Event handling
 */
 
 
@@ -11,5 +9,10 @@ export function Basic() {
     alert('lol');
   }
 
-  return <button onClick={handleClick}>button</button>
+  return (
+    // onEvent={eventHandler}
+    <button onClick={handleClick}>
+      button
+    </button>
+  )
 }

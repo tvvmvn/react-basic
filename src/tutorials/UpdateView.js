@@ -10,12 +10,9 @@ import { useState } from 'react';
 
 
 /*
-  An basic example
-  It is achieved by useState Hook.
-
-  ---
-  
-  useState Hook
+  Basic example
+  -
+  * useState Hook
 
   const [state, setState] = useState(initialValue);
 
@@ -43,19 +40,25 @@ export function UseStateHook() {
 
 /*
   Dynamic Styling
+
+  with useState Hook
 */
 
 
 export function DynamicStyling() {
   const [liked, setLiked] = useState(false);
 
+  function handleClick() {
+    setLiked(!liked);
+  }
+
   return (
     <>
-      <h1>Dynamic styling</h1>
+      <h1>Likes button</h1>
 
       <svg 
-        style={{ width: "2rem", fill: liked ? "#e00" : "#ddd" }}
-        onClick={() => setLiked(!liked)}
+        style={{ width: "2rem", fill: liked && "#e00" }}
+        onClick={handleClick}
         xmlns="http://www.w3.org/2000/svg" 
         viewBox="0 0 512 512"
       >

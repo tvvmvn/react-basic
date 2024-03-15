@@ -11,24 +11,39 @@ export default function Lab() {
 }
 
 function Snippet() {
-  const country = {
-    capitalCity: "서울",
-    name: "대한민국",
-    population: 5000,
-    language: "Korean",
-    isG7: false,
+  // handling form data
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    console.log("username:", username);
+    console.log("password:", password);
   }
 
   return (
-    <>
-      <h1>Q. JSX</h1>
-      <h3>{country.name}</h3>
-      <ul>
-        <li>수도: {country.capitalCity}</li>
-        <li>인구: 약 {country.population.toLocaleString()}만 명</li>
-        <li>언어: {country.language}</li>
-        <li>G7 여부: {country.isG7 ? "예" : "아니오"}</li>
-      </ul>
-    </>  
+    <form onSubmit={handleSubmit}>
+      <h1>Login</h1>
+      <div>
+        <label>
+          Username {" "}
+          <input 
+            type="text" 
+            onChange={(e) => setUsername(e.target.value)} 
+          />
+        </label>
+      </div>
+      <div>
+        <label>
+          Password {" "}
+          <input 
+            type="password" 
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </label>
+      </div>
+      <button type="submit">Login</button>
+    </form>  
   )
 }

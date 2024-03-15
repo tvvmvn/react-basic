@@ -75,7 +75,8 @@ export function JSX2() {
 /*
   Q. Props
 
-  complete a Content component.
+  complete a Content component refers to VIEW.
+  (Content creates VIEW using DATA)
 */
 
 
@@ -123,23 +124,65 @@ export function Props() {
 
 
 /*
-  Update View
+  Q. Update View
 */
 
 
 export function UpdateView() {
   const [subscribed, setSubscribed] = useState(false);
 
-  function handleClick() {
-    setSubscribed(!subscribed);
-  }
-
   return (
     <>
       <h1>Subscribe button</h1>
-      <button onClick={handleClick}>
+      <button onClick={() => setSubscribed(!subscribed)}>
         {subscribed ? "구독중" : "구독하기"}
       </button>
     </>  
   )
 }
+
+
+/* 
+  Q. Form 1
+
+  access login data after submitting login form.
+*/
+
+
+export function Form1() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    console.log("username:", username);
+    console.log("password:", password);
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <h1>Login</h1>
+      <div>
+        <label>
+          Username {" "}
+          <input 
+            type="text" 
+            onChange={(e) => setUsername(e.target.value)} 
+          />
+        </label>
+      </div>
+      <div>
+        <label>
+          Password {" "}
+          <input 
+            type="password" 
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </label>
+      </div>
+      <button type="submit">Login</button>
+    </form>  
+  )
+}
+

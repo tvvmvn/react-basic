@@ -2,39 +2,44 @@ import { useState, useRef, useEffect } from "react";
 
 
 /*
-  * form in React
+  * React Form 
 
   1 form data handling
-  It's totally different from HTML.
-  handling form data with useState Hook.
+  2 How to use form tricks 
+*/
 
-  2 How to use tricks 
+
+/*
+  1 form data handling
+
+  It's totally different from HTML.
+  handling form data with state
 */
 
 
 export function HandlingData() {
-  const [email, setEmail] = useState("");
+  const [q, setQ] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
     
     // accessing form data
-    console.log("email:", email);
+    console.log("q:", q);
   }
 
   function handleChange(e) {
-    setEmail(e.target.value);
+    setQ(e.target.value);
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>handling form data</h1>
+      <h1>Google</h1>
       <input 
-        type="text"
-        placeholder="bunny@example.com" 
+        type="search"
+        placeholder="Search Google" 
         onChange={handleChange} 
       />
-      <button type="submit">Submit</button>
+      <button type="submit">Search</button>
     </form>  
   )
 }

@@ -39,7 +39,7 @@ export function JSXBasic() {
 /* 
   Fragments
 
-  Entire tree should be wrapped by one tag in JSX.
+  Virtual tree should be wrapped by one tag.
   you can use fragments if you don't want to make a tag
   unnecessarily.
 */
@@ -80,10 +80,10 @@ export function Print() {
 
   return (
     <ul>
-      <li>Name: {cat.name}</li>
-      <li>Age: {cat.age}</li>
-      <li>Home: {cat.home}</li>
-      <li>Sound: {cat.sound()}</li>
+      <li>name: {cat.name}</li>
+      <li>age: {cat.age}</li>
+      <li>home: {cat.home}</li>
+      <li>sound: {cat.sound()}</li>
     </ul>
   )
 }

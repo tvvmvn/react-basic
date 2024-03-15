@@ -114,6 +114,9 @@ export default function Home() {
         <li>
           <Link to="/quiz/update-view">Update View</Link>
         </li>
+        <li>
+          <Link to="/quiz/form1">Form 1</Link>
+        </li>
       </ol>
     </>
   )

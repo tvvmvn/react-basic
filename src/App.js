@@ -12,7 +12,7 @@ import { UseStateHook, DynamicStyling } from "./tutorials/UpdateView";
 import { HandlingData, Tricks } from "./tutorials/Form";
 import { BasicRouter, AuthRouter } from "./tutorials/Router";
 import { EffectHook, DataFetching } from "./tutorials/FetchData";
-import { JSX1, JSX2, Props as PropsQ, UpdateView } from "./tutorials/Quiz";
+import { JSX1, JSX2, Props as PropsQ, UpdateView, Form1 } from "./tutorials/Quiz";
 
 export default function App() {
   return (
@@ -62,6 +62,7 @@ export default function App() {
             <Route path="jsx2" element={<JSX2 />} />
             <Route path="component/composition" element={<PropsQ />} />
             <Route path="update-view" element={<UpdateView />} />
+            <Route path="form1" element={<Form1 />} />
           </Route>
         </Route>
         <Route path="lab" element={<Lab />} />

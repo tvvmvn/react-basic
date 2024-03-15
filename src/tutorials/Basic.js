@@ -16,13 +16,13 @@ import {
 /*
   Basic usage
 
-  virtual tree is converted to real tree 
+  virtual tree is converted to real tree (HTML)
   and injected to document.
 */
 
 
 export function Basic() {
-  //  virtual tree
+  // virtual tree
   return <h1>Hello React!</h1>
 }
 

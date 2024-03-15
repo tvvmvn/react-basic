@@ -2,7 +2,7 @@ import { useContext, createContext } from 'react';
  
 
 /*
-  * React Component
+  * Component
   independent and reusable parts to build UI.
   Component name must starts with uppercase letter.
 
@@ -15,6 +15,8 @@ import { useContext, createContext } from 'react';
 
 /* 
   Component composition 
+
+  build VIEW by composing components
 */
 
 
@@ -91,13 +93,15 @@ export function Composition() {
 /*
   * Props
 
-  DATA passed between components in composition
+  DATA passed to components.
 */
+
 
 export function Props() {
 
   function Profile({ profile }) {
 
+    // props
     console.log(profile);
     
     return (
@@ -140,7 +144,8 @@ export function Props() {
 /* 
   Component Tree
 
-  you can build component tree with children props.
+  you can also make use of components as tree structure.
+  suitable for realizing function such as router. 
 */
 
 
@@ -187,8 +192,10 @@ export function ChildrenProps() {
 
 
 /* 
-  Delievering data into low level component
-  in tree structure
+  Data delivery on tree
+
+  You can deliver data into lower level component in tree
+  e.g) Authentication process
 */
 
 
@@ -202,9 +209,10 @@ export function UseContextHook() {
     const value = { username: 'bunny' };
   
     return (
+      // deliver value
       <AuthContext.Provider value={value}>
         {children}
-      </AuthContext.Provider>  
+      </AuthContext.Provider>
     )
   }
   
@@ -223,6 +231,7 @@ export function UseContextHook() {
           </ul>
         </nav>
   
+        {/* auth status */}
         {auth ? (
           <p>Hi, {auth.username}!</p>
         ) : (
@@ -235,7 +244,6 @@ export function UseContextHook() {
       </>  
     )
   }
-  
   
   function Article() {
     return (
