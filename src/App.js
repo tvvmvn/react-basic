@@ -9,7 +9,7 @@ import { JSXBasic, Print, Fragment, Condition, Loop } from "./tutorials/JSX";
 import { Composition, Props, ChildrenProps, UseContextHook } from "./tutorials/Component";
 import { Basic as EventBasic } from "./tutorials/Event";
 import { UseStateHook, DynamicStyling } from "./tutorials/UpdateView";
-import { HandlingData, Tricks } from "./tutorials/Form";
+import { HandlingData, DynamicButton, ClearingInput, AutoFocus } from "./tutorials/Form";
 import { BasicRouter, AuthRouter } from "./tutorials/Router";
 import { EffectHook, DataFetching } from "./tutorials/FetchData";
 import { JSX1, JSX2, Props as PropsQ, UpdateView, Form1 } from "./tutorials/Quiz";
@@ -47,7 +47,9 @@ export default function App() {
           </Route>
           <Route path="form">
             <Route path="data" element={<HandlingData /> } />
-            <Route path="tricks" element={<Tricks /> } />
+            <Route path="tricks1" element={<DynamicButton /> } />
+            <Route path="tricks2" element={<ClearingInput /> } />
+            <Route path="tricks3" element={<AutoFocus /> } />
           </Route>
           <Route path="router">
             <Route path="basic/*" element={<BasicRouter />} />

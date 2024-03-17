@@ -106,6 +106,16 @@ export function Props() {
     
     return (
       <section>
+        <img
+          src={profile.avatar} 
+          style={{
+            width: "100px",
+            height: "100px",
+            objectFit: "cover",
+            border: "1px solid #ddd",
+            borderRadius: "99px",
+          }}      
+          />
         <h3>{profile.username}</h3>
         <p>{profile.bio}</p>
         <ul>
@@ -122,6 +132,7 @@ export function Props() {
     // local 
     const DATA = { 
       username: "Jesus Christ", 
+      avatar: "https://i.pinimg.com/736x/be/f3/6c/bef36c02887e6f87d7c9c1d7ef6c336b.jpg",
       bio: "Love your neighbors!",
       posts: 5,
       followers: 10,

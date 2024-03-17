@@ -143,7 +143,7 @@ export function UpdateView() {
 
 
 /* 
-  Q. Form 1
+  Q. Form
 
   access login data after submitting login form.
 */
@@ -156,8 +156,7 @@ export function Form1() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    console.log("username:", username);
-    console.log("password:", password);
+    console.log(`username: ${username}, password: ${password}`);
   }
 
   return (

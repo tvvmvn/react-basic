@@ -10,40 +10,74 @@ export default function Lab() {
   return <Snippet />
 }
 
+
+/*
+  1 dynamic button - comment
+  2 clearing input after submit - todo form
+  3 auto focus - search form
+*/
+
+
 function Snippet() {
-  // handling form data
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current.focus();
+  })
+
+  return (
+    <>
+      <h1>Autofocus</h1>
+      <h3>Google</h3>
+      <input 
+        type="search" 
+        placeholder="Google Search" 
+        ref={inputRef}
+      />
+    </>
+  )
+}
+
+function __Snippet() {
+  const [todo, setTodo] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
-
-    console.log("username:", username);
-    console.log("password:", password);
+    alert("Added");
+    setTodo("");
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Login</h1>
-      <div>
-        <label>
-          Username {" "}
-          <input 
-            type="text" 
-            onChange={(e) => setUsername(e.target.value)} 
-          />
-        </label>
-      </div>
-      <div>
-        <label>
-          Password {" "}
-          <input 
-            type="password" 
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </label>
-      </div>
-      <button type="submit">Login</button>
-    </form>  
+      <h1>Clearing input</h1>
+      <h3>Todo List 📝</h3>
+      <input 
+        type="text" 
+        value={todo}
+        onChange={(e) => setTodo(e.target.value)}
+        placeholder="New Todo"
+      />  
+      <button>Add</button>
+    </form>
+  )
+}
+
+function _Snippet() {
+  const [comment, setComment] = useState("");
+
+  return (
+    <>
+      <h1>Dynamic button</h1>
+      <h3>Add a comment</h3>
+      <input 
+        type="text" 
+        onChange={(e) => setComment(e.target.value)}
+      />  
+      <button 
+        disabled={!comment.trim()}
+      >
+        Send
+      </button>
+    </>
   )
 }

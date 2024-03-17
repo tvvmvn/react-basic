@@ -21,7 +21,7 @@ export default function Home() {
       <h3>JSX</h3>
       <ol>
         <li>
-          <Link to="/jsx/basic">Basic Usage</Link>
+          <Link to="/jsx/basic">Basic usage</Link>
         </li>
         <li>
           <Link to="/jsx/fragment">Fragment</Link>
@@ -76,7 +76,13 @@ export default function Home() {
           <Link to="/form/data">Handling form data</Link>
         </li>
         <li>
-          <Link to="/form/tricks">How to use form tricks</Link>
+          <Link to="/form/tricks1">Form tricks 1 - dynamic button</Link>
+        </li>
+        <li>
+          <Link to="/form/tricks2">Form tricks 2 - clearing input</Link>
+        </li>
+        <li>
+          <Link to="/form/tricks3">Form tricks 3 - auto focus</Link>
         </li>
       </ol>
 
@@ -86,7 +92,7 @@ export default function Home() {
           <Link to="/router/basic">Basic</Link>
         </li>
         <li>
-          <Link to="/router/auth">Router with Authorization</Link>
+          <Link to="/router/auth">Router with authorization</Link>
         </li>
       </ol>
 
@@ -115,7 +121,7 @@ export default function Home() {
           <Link to="/quiz/update-view">Update View</Link>
         </li>
         <li>
-          <Link to="/quiz/form1">Form 1</Link>
+          <Link to="/quiz/form1">Form</Link>
         </li>
       </ol>
     </>

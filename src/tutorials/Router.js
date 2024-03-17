@@ -12,6 +12,8 @@ import { Router as HashRouter, Routes, Route, Link, useParams } from 'react-rout
 
 /*
   Basic Router 
+
+  It connects request with proper source.
 */
 
 

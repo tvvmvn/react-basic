@@ -2,15 +2,15 @@ import { useState, useRef, useEffect } from "react";
 
 
 /*
-  * React Form 
+  Form 
 
-  1 form data handling
-  2 How to use form tricks 
+  1 Form data handling
+  2 Form tricks 
 */
 
 
 /*
-  1 form data handling
+  1 Form data handling
 
   It's totally different from HTML.
   handling form data with state
@@ -18,75 +18,117 @@ import { useState, useRef, useEffect } from "react";
 
 
 export function HandlingData() {
-  const [q, setQ] = useState("");
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    
-    // accessing form data
-    console.log("q:", q);
-  }
-
-  function handleChange(e) {
-    setQ(e.target.value);
-  }
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <h1>Google</h1>
-      <input 
-        type="search"
-        placeholder="Search Google" 
-        onChange={handleChange} 
-      />
-      <button type="submit">Search</button>
-    </form>  
-  )
-}
-
-
-/*
-  form tricks
-
-  1 dynamic button - login form
-  2 clearing input after submit - todo form
-  3 auto focus - search form
-*/
-
-
-export function Tricks() {
   const [email, setEmail] = useState("");
-  const inputRef = useRef(null);
 
   function handleSubmit(e) {
     e.preventDefault();
     
     // accessing form data
     console.log("email:", email);
-    setEmail("");
   }
 
   function handleChange(e) {
     setEmail(e.target.value);
   }
 
+  return (
+    <form onSubmit={handleSubmit}>
+      <h1>Newsletter</h1>
+      <input 
+        type="email"
+        placeholder="bunny@example.com" 
+        onChange={handleChange} 
+      />
+      <button type="submit">Subscribe</button>
+    </form>  
+  )
+}
+
+
+/*
+  Form tricks
+
+  1 Dynamic button
+  2 Clearing input after submit
+  3 Auto focus on input
+*/
+
+
+/*
+  Dynamic button
+*/
+
+
+export function DynamicButton() {
+  const [comment, setComment] = useState("");
+
+  return (
+    <>
+      <h1>Add a comment</h1>
+      <input 
+        type="text" 
+        onChange={(e) => setComment(e.target.value)}
+      />  
+      <button 
+        disabled={!comment.trim()}
+      >
+        Send
+      </button>
+    </>
+  )
+}
+
+
+/*
+  Clearing input after submit
+*/
+
+
+export function ClearingInput() {
+  const [todo, setTodo] = useState("");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    alert("Added");
+    setTodo("");
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <h1>Todo App 📝</h1>
+      <input 
+        type="text" 
+        value={todo}
+        onChange={(e) => setTodo(e.target.value)}
+        placeholder="New Todo"
+      />  
+      <button>Add</button>
+    </form>
+  )
+}
+
+
+/*
+  Auto focus on input
+*/
+
+
+export function AutoFocus() {
+  const inputRef = useRef(null);
+
   useEffect(() => {
     inputRef.current.focus();
   })
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Form tricks</h1>
+    <>
+      <h1>Explore</h1>
+
       <input 
-        type="text"
-        value={email}
-        placeholder="bunny@example.com" 
-        onChange={handleChange} 
+        type="search" 
+        placeholder="username" 
         ref={inputRef}
       />
-      <button type="submit" disabled={!email}>
-        Submit
-      </button>
-    </form>  
+    </>
   )
 }
