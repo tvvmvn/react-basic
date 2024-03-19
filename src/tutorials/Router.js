@@ -22,6 +22,10 @@ export function BasicRouter() {
   function Home() {
     return <h1>Home</h1>
   }
+    
+  function About() {
+    return <h1>About</h1>
+  }
   
   function Posts() {
     return (
@@ -49,10 +53,6 @@ export function BasicRouter() {
         <p>{postId}</p>
       </>
     )
-  }
-  
-  function About() {
-    return <h1>About</h1>
   }
   
   function NotFound() {
@@ -142,7 +142,6 @@ export function AuthRouter() {
           <h1>Login</h1>
           <input 
             type="text" 
-            name="username" 
             onChange={(e) => setUsername(e.target.value)} 
             required
           />
@@ -156,6 +155,10 @@ export function AuthRouter() {
   
   function Home() {
     return <h1>Home</h1>
+  }
+
+  function About() {
+    return <h1>About</h1>
   }
   
   function Posts() {
@@ -200,6 +203,9 @@ export function AuthRouter() {
                 <Link to="/router/auth/">Home</Link>
               </li>
               <li>
+                <Link to="/router/auth/about">About</Link>
+              </li>
+              <li>
                 <Link to="/router/auth/posts">Posts</Link>
               </li>
             </ul>
@@ -209,6 +215,7 @@ export function AuthRouter() {
           
           <Routes>
             <Route index element={<Home />} />
+            <Route path="about" element={<About />} />
             <Route path="posts" element={<Posts />} />
             <Route path="post/:postId" element={
               <AuthRequired>

@@ -5,29 +5,31 @@ import { useState, useEffect } from "react";
   Data fetching
 
   1 useEffect Hook
-  2 An example
+  2 Data fetching example
 */
 
 
 /*
   useEffect
 
-  you can give many effects into app.
+  It can give many effects into app.
   for examples, data fetching, accessing real element and etc.
 
   - How to use
   1 useEffect(effect)
-  excute effect whenever component is rendered.
+  excute effect when component is called.
   
   2 useEffect(effect, [])
-  excute effect only at initial rendering.
+  excute effect when component is called initially.
   
   3 useEffect(effect, [deps])
-  excute effect at initial rendering and whenever deps(dependencies) is updated.
+  excute effect when component is called initially
+  and deps(dependencies) are updated.
 */
 
 
 export function EffectHook() {
+  // **setState call component.
   const [count, setCount] = useState(0);
   
   useEffect(() => {
@@ -45,13 +47,13 @@ export function EffectHook() {
 
 
 /*
-  An example
+  Data fetching example
 */
 
 
 function getProfile() {
   const DATA = {
-    username: "snoop_dogg",
+    username: "doggy",
     avatar: "https://i.pinimg.com/originals/28/8b/d1/288bd18fd073898a8417c31c77f83059.jpg",
     bio: "정신이 좀 드는가"
   }
@@ -59,7 +61,7 @@ function getProfile() {
   const promise = new Promise((res, rej) => {
     setTimeout(() => {
       res(DATA)
-    }, 0)
+    }, 2000);
   })
 
   return promise;
@@ -85,7 +87,7 @@ export function DataFetching() {
   }, [])
 
   if (error) {
-    return <p>failed to fetch profile</p>
+    return <p>failed to fetch</p>
   }
 
   if (!isLoaded) {
